@@ -60,7 +60,7 @@ cp env.example .env
 # Edit .env and add your OpenAI API key
 
 # Run the interface
-python integrated_gradio_app.py
+python app.py
 ```
 
 ### Option 2: VS Code Dev Container
@@ -81,7 +81,7 @@ pip install git+https://github.com/TIGER-AI-Lab/AceCoder.git@dev
 pip install -e .
 
 # Run the interface
-python integrated_gradio_app.py
+python app.py
 ```
 
 For detailed conda setup instructions, see [CONDA_SETUP.md](CONDA_SETUP.md).

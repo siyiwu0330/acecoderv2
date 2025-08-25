@@ -44,7 +44,7 @@ install-dev:
 # Development commands
 run:
 	@echo "Starting Gradio interface..."
-	python integrated_gradio_app.py
+	python app.py
 
 test:
 	@echo "Running tests..."

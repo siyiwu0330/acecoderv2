@@ -28,7 +28,7 @@ python -c "import transformers; print(f'Transformers version: {transformers.__ve
 python -c "import openai; print(f'OpenAI version: {openai.__version__}')"
 
 # Test the main interface
-python integrated_gradio_app.py --help
+python app.py --help
 ```
 
 ## Alternative Setup Methods
@@ -104,7 +104,7 @@ python -c "import torch; print(f'GPU count: {torch.cuda.device_count()}')"
 
 ```bash
 conda activate acecoderv2-dev
-python integrated_gradio_app.py
+python app.py
 ```
 
 Access at: http://localhost:7860
@@ -187,7 +187,7 @@ conda activate acecoderv2-dev
 
 # Test changes
 python -m pytest tests/  # if tests exist
-python integrated_gradio_app.py  # manual testing
+python app.py  # manual testing
 ```
 
 ### 2. Adding Dependencies
