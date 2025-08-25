@@ -1,0 +1,30 @@
+# Core dependencies from pyproject.toml
+datasets>=4.0.0
+fire>=0.7.0
+openai>=1.97.1
+transformers>=4.53.3
+
+# Additional runtime dependencies
+accelerate>=1.0.0
+torch>=2.0.0
+numpy>=2.0.0
+pandas>=2.0.0
+huggingface-hub>=0.34.0
+tokenizers>=0.21.0
+safetensors>=0.6.0
+
+# Web interface dependencies
+gradio>=5.0.0
+fastapi>=0.110.0
+uvicorn>=0.25.0
+
+# Evaluation dependencies
+evalplus>=0.3.0
+
+# Development dependencies (optional)
+pytest>=7.0.0
+black>=23.0.0
+ruff>=0.1.0
+
+# Note: AceCoder should be installed separately:
+# pip install git+https://github.com/TIGER-AI-Lab/AceCoder.git@dev

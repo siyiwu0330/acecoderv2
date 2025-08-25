@@ -46,21 +46,45 @@ docker-compose up -d
 
 ## Development Setup
 
-### Option 1: VS Code Dev Container (Recommended for Development)
+### Option 1: Conda Environment (Recommended)
+```bash
+# Create conda environment
+conda env create -f environment-dev.yml
+conda activate acecoderv2-dev
+
+# Install project in development mode
+pip install -e .
+
+# Set up environment variables
+cp env.example .env
+# Edit .env and add your OpenAI API key
+
+# Run the interface
+python integrated_gradio_app.py
+```
+
+### Option 2: VS Code Dev Container
 1. Install VS Code with Dev Containers extension
 2. Open project in VS Code
 3. Click "Reopen in Container" when prompted
 4. Everything will be set up automatically!
 
-### Option 2: Local Development
+### Option 3: UV/Local Development
 ```bash
-# Install dependencies
+# Install dependencies with uv
 uv sync
 uv pip install -e .
 
+# Or use pip with requirements.txt
+pip install -r requirements.txt
+pip install git+https://github.com/TIGER-AI-Lab/AceCoder.git@dev
+pip install -e .
+
 # Run the interface
-python advsersial_prompt/integrated_gradio_app.py
+python integrated_gradio_app.py
 ```
+
+For detailed conda setup instructions, see [CONDA_SETUP.md](CONDA_SETUP.md).
 
 ## Features
 
