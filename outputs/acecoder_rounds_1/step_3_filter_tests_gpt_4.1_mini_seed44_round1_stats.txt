@@ -1,0 +1,88 @@
+
+================================================================================
+EVALUATION STATISTICS
+================================================================================
+📊 Basic Info:
+   Total problems: 2
+   Total solutions: 35
+   Solutions per problem: 17
+
+🎯 Pass Rate Statistics:
+   Mean pass rate: 0.2405 (24.05%)
+   Median pass rate: 0.0000 (0.00%)
+   Std deviation: 0.2809
+   Solutions per problem (variable): 35/2 = 17.0 avg
+   Pass@k statistics skipped (non-uniform solution distribution)
+   Min pass rate: 0.0000 (0.00%)
+   Max pass rate: 0.5833 (58.33%)
+   Total solutions with pass rate 1.0: 0
+   Percentiles:
+     25th: 0.0000 (0.00%)
+     50th: 0.0000 (0.00%)
+     75th: 0.5833 (58.33%)
+     90th: 0.5833 (58.33%)
+     95th: 0.5833 (58.33%)
+     99th: 0.5833 (58.33%)
+
+✅ Solution Quality Distribution:
+   Perfect solutions (100% pass): 0 (0.00%)
+   Partial solutions (0% < pass < 100%): 15 (42.86%)
+   Failed solutions (0% pass): 20 (57.14%)
+
+📈 Pass Rate Distribution (bins):
+   [0.0, 0.1): 20 solutions (57.14%)
+   [0.1, 0.2): 0 solutions (0.00%)
+   [0.2, 0.3): 0 solutions (0.00%)
+   [0.3, 0.4): 1 solutions (2.86%)
+   [0.4, 0.5): 0 solutions (0.00%)
+   [0.5, 0.6): 14 solutions (40.00%)
+   [0.6, 0.7): 0 solutions (0.00%)
+   [0.7, 0.8): 0 solutions (0.00%)
+   [0.8, 0.9): 0 solutions (0.00%)
+   [0.9, 1.0): 0 solutions (0.00%)
+
+🧩 Problem-level Analysis:
+   Average pass rate per problem: 0.1913 ± 0.1913
+   Best solution per problem: 0.2917 ± 0.2917
+   Worst solution per problem: 0.0000 ± 0.0000
+
+🎚️  Problem Difficulty (based on best solution):
+   Easy (≥80% pass): 0 (0.00%)
+   Medium (40-80% pass): 1 (50.00%)
+   Hard (<40% pass): 1 (50.00%)
+
+🧪 Test Case Analysis:
+   Total test cases: 420
+   Passed test cases: 101 (24.05%)
+   Failed test cases: 319 (75.95%)
+   Overall test pass rate: 0.2405 (24.05%)
+   Avg test cases per solution: 12.00 ± 0.00
+   Min/Max test cases: 12/12
+
+   📋 Failure Reasons:
+     fail: 259 (61.67%)
+     pass: 101 (24.05%)
+     unexecuted: 60 (14.29%)
+
+   ❌ Error Analysis:
+     Test cases with errors: 38 (9.05%)
+     Top error messages:
+       12x (31.6%): name 'predict_next_four' is not defined
+       12x (31.6%): 'list' object is not callable
+       12x (31.6%): unhashable type: 'list'
+       2x (5.3%): list assignment index out of range
+
+   ⏰ Time Limit Analysis:
+     Average time limit: 1.00s ± 0.00s
+     Min/Max time limit: 1.00s / 1.00s
+     Time limit distribution:
+       1s: 420 tests (100.00%)
+
+🏆 Top 5 Easiest Problems (by best solution pass rate):
+   1. Problem 0: 0.5833 (avg: 0.3826)
+   2. Problem 1: 0.0000 (avg: 0.0000)
+
+💀 Top 5 Hardest Problems (by best solution pass rate):
+   1. Problem 1: 0.0000 (avg: 0.0000)
+   2. Problem 0: 0.5833 (avg: 0.3826)
+================================================================================

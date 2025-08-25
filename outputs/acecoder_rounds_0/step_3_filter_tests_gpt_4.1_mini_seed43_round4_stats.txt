@@ -1,0 +1,91 @@
+
+================================================================================
+EVALUATION STATISTICS
+================================================================================
+📊 Basic Info:
+   Total problems: 4
+   Total solutions: 43
+   Solutions per problem: 10
+
+🎯 Pass Rate Statistics:
+   Mean pass rate: 0.7124 (71.24%)
+   Median pass rate: 1.0000 (100.00%)
+   Std deviation: 0.4137
+   Solutions per problem (variable): 43/4 = 10.0 avg
+   Pass@k statistics skipped (non-uniform solution distribution)
+   Min pass rate: 0.0000 (0.00%)
+   Max pass rate: 1.0000 (100.00%)
+   Total solutions with pass rate 1.0: 28
+   Percentiles:
+     25th: 0.2000 (20.00%)
+     50th: 1.0000 (100.00%)
+     75th: 1.0000 (100.00%)
+     90th: 1.0000 (100.00%)
+     95th: 1.0000 (100.00%)
+     99th: 1.0000 (100.00%)
+
+✅ Solution Quality Distribution:
+   Perfect solutions (100% pass): 28 (65.12%)
+   Partial solutions (0% < pass < 100%): 11 (25.58%)
+   Failed solutions (0% pass): 4 (9.30%)
+
+📈 Pass Rate Distribution (bins):
+   [0.0, 0.1): 4 solutions (9.30%)
+   [0.1, 0.2): 3 solutions (6.98%)
+   [0.2, 0.3): 7 solutions (16.28%)
+   [0.3, 0.4): 0 solutions (0.00%)
+   [0.4, 0.5): 0 solutions (0.00%)
+   [0.5, 0.6): 0 solutions (0.00%)
+   [0.6, 0.7): 0 solutions (0.00%)
+   [0.7, 0.8): 0 solutions (0.00%)
+   [0.8, 0.9): 0 solutions (0.00%)
+   [0.9, 1.0): 29 solutions (67.44%)
+
+🧩 Problem-level Analysis:
+   Average pass rate per problem: 0.3696 ± 0.4121
+   Best solution per problem: 0.5000 ± 0.5000
+   Worst solution per problem: 0.2583 ± 0.3918
+
+🎚️  Problem Difficulty (based on best solution):
+   Easy (≥80% pass): 2 (50.00%)
+   Medium (40-80% pass): 0 (0.00%)
+   Hard (<40% pass): 2 (50.00%)
+
+🧪 Test Case Analysis:
+   Total test cases: 531
+   Passed test cases: 421 (79.28%)
+   Failed test cases: 110 (20.72%)
+   Overall test pass rate: 0.7928 (79.28%)
+   Avg test cases per solution: 12.35 ± 3.00
+   Min/Max test cases: 6/15
+
+   📋 Failure Reasons:
+     pass: 421 (79.28%)
+     fail: 84 (15.82%)
+     unexecuted: 14 (2.64%)
+     syntax_error: 12 (2.26%)
+
+   ❌ Error Analysis:
+     Test cases with errors: 13 (2.45%)
+     Top error messages:
+       12x (92.3%): unmatched ')' (<string>, line 7)
+       1x (7.7%): negative shift count
+
+   ⏰ Time Limit Analysis:
+     Average time limit: 1.00s ± 0.00s
+     Min/Max time limit: 1.00s / 1.00s
+     Time limit distribution:
+       1s: 531 tests (100.00%)
+
+🏆 Top 5 Easiest Problems (by best solution pass rate):
+   1. Problem 0: 1.0000 (avg: 0.4812)
+   2. Problem 1: 1.0000 (avg: 0.9971)
+   3. Problem 2: 0.0000 (avg: 0.0000)
+   4. Problem 3: 0.0000 (avg: 0.0000)
+
+💀 Top 5 Hardest Problems (by best solution pass rate):
+   1. Problem 3: 0.0000 (avg: 0.0000)
+   2. Problem 2: 0.0000 (avg: 0.0000)
+   3. Problem 1: 1.0000 (avg: 0.9971)
+   4. Problem 0: 1.0000 (avg: 0.4812)
+================================================================================

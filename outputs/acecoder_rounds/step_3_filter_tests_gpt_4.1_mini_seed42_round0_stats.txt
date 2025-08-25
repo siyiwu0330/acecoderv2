@@ -1,0 +1,99 @@
+
+================================================================================
+EVALUATION STATISTICS
+================================================================================
+📊 Basic Info:
+   Total problems: 5
+   Total solutions: 130
+   Solutions per problem: 26
+
+🎯 Pass Rate Statistics:
+   Mean pass rate: 0.3187 (31.87%)
+   Median pass rate: 0.2500 (25.00%)
+   Std deviation: 0.3298
+   Solutions per problem (uniform): 26
+
+📈 Pass@k Statistics:
+   Pass@1: 0.0000 (0.00%)
+   Pass@2: 0.0000 (0.00%)
+   Pass@4: 0.2000 (20.00%)
+   Pass@8: 0.2000 (20.00%)
+   Pass@16: 0.2000 (20.00%)
+   Pass@26: 0.2000 (20.00%)
+   Min pass rate: 0.0000 (0.00%)
+   Max pass rate: 1.0000 (100.00%)
+   Total solutions with pass rate 1.0: 1
+   Percentiles:
+     25th: 0.0000 (0.00%)
+     50th: 0.2500 (25.00%)
+     75th: 0.7500 (75.00%)
+     90th: 0.8050 (80.50%)
+     95th: 0.8500 (85.00%)
+     99th: 0.8500 (85.00%)
+
+✅ Solution Quality Distribution:
+   Perfect solutions (100% pass): 1 (0.77%)
+   Partial solutions (0% < pass < 100%): 79 (60.77%)
+   Failed solutions (0% pass): 50 (38.46%)
+
+📈 Pass Rate Distribution (bins):
+   [0.0, 0.1): 52 solutions (40.00%)
+   [0.1, 0.2): 0 solutions (0.00%)
+   [0.2, 0.3): 35 solutions (26.92%)
+   [0.3, 0.4): 0 solutions (0.00%)
+   [0.4, 0.5): 2 solutions (1.54%)
+   [0.5, 0.6): 1 solutions (0.77%)
+   [0.6, 0.7): 5 solutions (3.85%)
+   [0.7, 0.8): 19 solutions (14.62%)
+   [0.8, 0.9): 15 solutions (11.54%)
+   [0.9, 1.0): 1 solutions (0.77%)
+
+🧩 Problem-level Analysis:
+   Average pass rate per problem: 0.3194 ± 0.2077
+   Best solution per problem: 0.5700 ± 0.3803
+   Worst solution per problem: 0.0000 ± 0.0000
+
+🎚️  Problem Difficulty (based on best solution):
+   Easy (≥80% pass): 2 (40.00%)
+   Medium (40-80% pass): 1 (20.00%)
+   Hard (<40% pass): 2 (40.00%)
+
+🧪 Test Case Analysis:
+   Total test cases: 1958
+   Passed test cases: 761 (38.87%)
+   Failed test cases: 1197 (61.13%)
+   Overall test pass rate: 0.3887 (38.87%)
+   Avg test cases per solution: 15.06 ± 7.80
+   Min/Max test cases: 1/20
+
+   📋 Failure Reasons:
+     fail: 805 (41.11%)
+     pass: 761 (38.87%)
+     unexecuted: 392 (20.02%)
+
+   ❌ Error Analysis:
+     Test cases with errors: 13 (0.66%)
+     Top error messages:
+       7x (53.8%): max() arg is an empty sequence
+       6x (46.2%): 'NoneType' object is not subscriptable
+
+   ⏰ Time Limit Analysis:
+     Average time limit: 1.00s ± 0.00s
+     Min/Max time limit: 1.00s / 1.00s
+     Time limit distribution:
+       1s: 1958 tests (100.00%)
+
+🏆 Top 5 Easiest Problems (by best solution pass rate):
+   1. Problem 3: 1.0000 (avg: 0.3021)
+   2. Problem 0: 0.8500 (avg: 0.6000)
+   3. Problem 2: 0.7500 (avg: 0.4759)
+   4. Problem 4: 0.2500 (avg: 0.2188)
+   5. Problem 1: 0.0000 (avg: 0.0000)
+
+💀 Top 5 Hardest Problems (by best solution pass rate):
+   1. Problem 1: 0.0000 (avg: 0.0000)
+   2. Problem 4: 0.2500 (avg: 0.2188)
+   3. Problem 2: 0.7500 (avg: 0.4759)
+   4. Problem 0: 0.8500 (avg: 0.6000)
+   5. Problem 3: 1.0000 (avg: 0.3021)
+================================================================================

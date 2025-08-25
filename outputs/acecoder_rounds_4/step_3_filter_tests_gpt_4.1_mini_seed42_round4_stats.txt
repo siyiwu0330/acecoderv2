@@ -1,0 +1,106 @@
+
+================================================================================
+EVALUATION STATISTICS
+================================================================================
+📊 Basic Info:
+   Total problems: 5
+   Total solutions: 80
+   Solutions per problem: 16
+
+🎯 Pass Rate Statistics:
+   Mean pass rate: 0.6376 (63.76%)
+   Median pass rate: 0.7200 (72.00%)
+   Std deviation: 0.3359
+   Solutions per problem (uniform): 16
+
+📈 Pass@k Statistics:
+   Pass@1: 0.0000 (0.00%)
+   Pass@2: 0.0000 (0.00%)
+   Pass@4: 0.0000 (0.00%)
+   Pass@8: 0.0000 (0.00%)
+   Pass@16: 0.0000 (0.00%)
+   Min pass rate: 0.0000 (0.00%)
+   Max pass rate: 0.9643 (96.43%)
+   Total solutions with pass rate 1.0: 0
+   Percentiles:
+     25th: 0.5000 (50.00%)
+     50th: 0.7200 (72.00%)
+     75th: 0.9643 (96.43%)
+     90th: 0.9643 (96.43%)
+     95th: 0.9643 (96.43%)
+     99th: 0.9643 (96.43%)
+
+✅ Solution Quality Distribution:
+   Perfect solutions (100% pass): 0 (0.00%)
+   Partial solutions (0% < pass < 100%): 67 (83.75%)
+   Failed solutions (0% pass): 13 (16.25%)
+
+📈 Pass Rate Distribution (bins):
+   [0.0, 0.1): 13 solutions (16.25%)
+   [0.1, 0.2): 0 solutions (0.00%)
+   [0.2, 0.3): 1 solutions (1.25%)
+   [0.3, 0.4): 0 solutions (0.00%)
+   [0.4, 0.5): 6 solutions (7.50%)
+   [0.5, 0.6): 15 solutions (18.75%)
+   [0.6, 0.7): 0 solutions (0.00%)
+   [0.7, 0.8): 15 solutions (18.75%)
+   [0.8, 0.9): 0 solutions (0.00%)
+   [0.9, 1.0): 30 solutions (37.50%)
+
+🧩 Problem-level Analysis:
+   Average pass rate per problem: 0.4402 ± 0.3752
+   Best solution per problem: 0.4970 ± 0.3403
+   Worst solution per problem: 0.3539 ± 0.2991
+
+🎚️  Problem Difficulty (based on best solution):
+   Easy (≥80% pass): 1 (20.00%)
+   Medium (40-80% pass): 2 (40.00%)
+   Hard (<40% pass): 2 (40.00%)
+
+🧪 Test Case Analysis:
+   Total test cases: 3550
+   Passed test cases: 2336 (65.80%)
+   Failed test cases: 1214 (34.20%)
+   Overall test pass rate: 0.6580 (65.80%)
+   Avg test cases per solution: 44.38 ± 25.15
+   Min/Max test cases: 8/75
+
+   📋 Failure Reasons:
+     pass: 2336 (65.80%)
+     fail: 1087 (30.62%)
+     unexecuted: 88 (2.48%)
+     timeout: 24 (0.68%)
+     syntax_error: 15 (0.42%)
+
+   ❌ Error Analysis:
+     Test cases with errors: 147 (4.14%)
+     Top error messages:
+       84x (57.1%): Solution() takes no arguments
+       24x (16.3%): Timed out!
+       14x (9.5%): '[' was never closed (<string>, line 1)
+       2x (1.4%): 'MockGridMaster1' object has no attribute 'isTarget'
+       2x (1.4%): 'MockGridMaster2' object has no attribute 'isTarget'
+
+   ⏱️  Timeout Analysis:
+     Timeout test cases: 24 (0.68%)
+
+   ⏰ Time Limit Analysis:
+     Average time limit: 1.00s ± 0.00s
+     Min/Max time limit: 1.00s / 1.00s
+     Time limit distribution:
+       1s: 3550 tests (100.00%)
+
+🏆 Top 5 Easiest Problems (by best solution pass rate):
+   1. Problem 2: 0.9643 (avg: 0.9397)
+   2. Problem 0: 0.7200 (avg: 0.7200)
+   3. Problem 4: 0.5507 (avg: 0.5202)
+   4. Problem 3: 0.2500 (avg: 0.0208)
+   5. Problem 1: 0.0000 (avg: 0.0000)
+
+💀 Top 5 Hardest Problems (by best solution pass rate):
+   1. Problem 1: 0.0000 (avg: 0.0000)
+   2. Problem 3: 0.2500 (avg: 0.0208)
+   3. Problem 4: 0.5507 (avg: 0.5202)
+   4. Problem 0: 0.7200 (avg: 0.7200)
+   5. Problem 2: 0.9643 (avg: 0.9397)
+================================================================================

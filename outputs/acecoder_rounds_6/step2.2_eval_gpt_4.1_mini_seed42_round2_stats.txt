@@ -1,0 +1,101 @@
+
+================================================================================
+EVALUATION STATISTICS
+================================================================================
+📊 Basic Info:
+   Total problems: 76
+   Total solutions: 3110
+   Solutions per problem: 40
+
+🎯 Pass Rate Statistics:
+   Mean pass rate: 0.4225 (42.25%)
+   Median pass rate: 0.4921 (49.21%)
+   Std deviation: 0.3094
+   Solutions per problem (variable): 3110/76 = 40.0 avg
+   Pass@k statistics skipped (non-uniform solution distribution)
+   Min pass rate: 0.0000 (0.00%)
+   Max pass rate: 0.9836 (98.36%)
+   Total solutions with pass rate 1.0: 0
+   Percentiles:
+     25th: 0.0721 (7.21%)
+     50th: 0.4921 (49.21%)
+     75th: 0.6667 (66.67%)
+     90th: 0.7843 (78.43%)
+     95th: 0.9000 (90.00%)
+     99th: 0.9836 (98.36%)
+
+✅ Solution Quality Distribution:
+   Perfect solutions (100% pass): 0 (0.00%)
+   Partial solutions (0% < pass < 100%): 2467 (79.32%)
+   Failed solutions (0% pass): 643 (20.68%)
+
+📈 Pass Rate Distribution (bins):
+   [0.0, 0.1): 789 solutions (25.37%)
+   [0.1, 0.2): 230 solutions (7.40%)
+   [0.2, 0.3): 94 solutions (3.02%)
+   [0.3, 0.4): 244 solutions (7.85%)
+   [0.4, 0.5): 219 solutions (7.04%)
+   [0.5, 0.6): 340 solutions (10.93%)
+   [0.6, 0.7): 578 solutions (18.59%)
+   [0.7, 0.8): 326 solutions (10.48%)
+   [0.8, 0.9): 132 solutions (4.24%)
+   [0.9, 1.0): 158 solutions (5.08%)
+
+🧩 Problem-level Analysis:
+   Average pass rate per problem: 0.4054 ± 0.2624
+   Best solution per problem: 0.5159 ± 0.2986
+   Worst solution per problem: 0.0538 ± 0.1558
+
+🎚️  Problem Difficulty (based on best solution):
+   Easy (≥80% pass): 13 (17.11%)
+   Medium (40-80% pass): 40 (52.63%)
+   Hard (<40% pass): 23 (30.26%)
+
+🧪 Test Case Analysis:
+   Total test cases: 152603
+   Passed test cases: 59914 (39.26%)
+   Failed test cases: 92689 (60.74%)
+   Overall test pass rate: 0.3926 (39.26%)
+   Avg test cases per solution: 49.07 ± 25.66
+   Min/Max test cases: 13/228
+
+   📋 Failure Reasons:
+     fail: 80375 (52.67%)
+     pass: 59914 (39.26%)
+     unexecuted: 5481 (3.59%)
+     syntax_error: 3988 (2.61%)
+     timeout: 2533 (1.66%)
+     missing_dependency: 312 (0.20%)
+
+   ❌ Error Analysis:
+     Test cases with errors: 30655 (20.09%)
+     Top error messages:
+       3542x (11.6%): unsupported operand type(s) for -: 'NoneType' and 'float'
+       2590x (8.4%): name 'createLabel' is not defined
+       2535x (8.3%): Timed out!
+       2302x (7.5%): name 'function' is not defined
+       1924x (6.3%): name 'getLabelFiles' is not defined
+
+   ⏱️  Timeout Analysis:
+     Timeout test cases: 2533 (1.66%)
+
+   ⏰ Time Limit Analysis:
+     Average time limit: 1.00s ± 0.00s
+     Min/Max time limit: 1.00s / 1.00s
+     Time limit distribution:
+       1s: 152603 tests (100.00%)
+
+🏆 Top 5 Easiest Problems (by best solution pass rate):
+   1. Problem 72: 0.9836 (avg: 0.9736)
+   2. Problem 59: 0.9545 (avg: 0.9110)
+   3. Problem 71: 0.9500 (avg: 0.7569)
+   4. Problem 74: 0.9286 (avg: 0.5661)
+   5. Problem 40: 0.9231 (avg: 0.8642)
+
+💀 Top 5 Hardest Problems (by best solution pass rate):
+   1. Problem 2: 0.0000 (avg: 0.0000)
+   2. Problem 11: 0.0000 (avg: 0.0000)
+   3. Problem 17: 0.0000 (avg: 0.0000)
+   4. Problem 38: 0.0000 (avg: 0.0000)
+   5. Problem 48: 0.0000 (avg: 0.0000)
+================================================================================

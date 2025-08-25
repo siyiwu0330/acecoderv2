@@ -1,0 +1,64 @@
+{
+    "name": "AceCoderV2 Development Environment",
+    "build": {
+        "dockerfile": "../Dockerfile",
+        "context": ".."
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.pylint",
+                "ms-python.black-formatter",
+                "ms-python.isort",
+                "ms-toolsai.jupyter",
+                "ms-vscode.vscode-json",
+                "redhat.vscode-yaml",
+                "ms-vscode.vscode-markdown",
+                "ms-vscode.live-server",
+                "bradlc.vscode-tailwindcss",
+                "esbenp.prettier-vscode"
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.formatting.provider": "black",
+                "python.linting.enabled": true,
+                "python.linting.pylintEnabled": true,
+                "editor.formatOnSave": true,
+                "editor.codeActionsOnSave": {
+                    "source.organizeImports": true
+                },
+                "files.exclude": {
+                    "**/__pycache__": true,
+                    "**/*.pyc": true
+                }
+            }
+        }
+    },
+    "forwardPorts": [7860, 8000],
+    "portsAttributes": {
+        "7860": {
+            "label": "Gradio Interface",
+            "onAutoForward": "notify"
+        },
+        "8000": {
+            "label": "Alternative Port",
+            "onAutoForward": "silent"
+        }
+    },
+    "postCreateCommand": "pip install --upgrade pip && echo 'Dev container ready!'",
+    "remoteUser": "acecoder",
+    "workspaceFolder": "/home/acecoder/app",
+    "mounts": [
+        "source=${localWorkspaceFolder}/outputs,target=/home/acecoder/app/outputs,type=bind,consistency=cached",
+        "source=${localWorkspaceFolder}/logs,target=/home/acecoder/app/logs,type=bind,consistency=cached"
+    ],
+    "containerEnv": {
+        "PYTHONPATH": "/home/acecoder/app"
+    }
+}
+

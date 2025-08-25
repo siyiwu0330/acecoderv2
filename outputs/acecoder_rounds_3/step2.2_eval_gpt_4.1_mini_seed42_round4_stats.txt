@@ -1,0 +1,105 @@
+
+================================================================================
+EVALUATION STATISTICS
+================================================================================
+📊 Basic Info:
+   Total problems: 4
+   Total solutions: 120
+   Solutions per problem: 30
+
+🎯 Pass Rate Statistics:
+   Mean pass rate: 0.4197 (41.97%)
+   Median pass rate: 0.5000 (50.00%)
+   Std deviation: 0.2959
+   Solutions per problem (uniform): 30
+
+📈 Pass@k Statistics:
+   Pass@1: 0.0000 (0.00%)
+   Pass@2: 0.0000 (0.00%)
+   Pass@4: 0.0000 (0.00%)
+   Pass@8: 0.0000 (0.00%)
+   Pass@16: 0.0000 (0.00%)
+   Pass@30: 0.0000 (0.00%)
+   Min pass rate: 0.0000 (0.00%)
+   Max pass rate: 0.7917 (79.17%)
+   Total solutions with pass rate 1.0: 0
+   Percentiles:
+     25th: 0.0000 (0.00%)
+     50th: 0.5000 (50.00%)
+     75th: 0.6000 (60.00%)
+     90th: 0.7917 (79.17%)
+     95th: 0.7917 (79.17%)
+     99th: 0.7917 (79.17%)
+
+✅ Solution Quality Distribution:
+   Perfect solutions (100% pass): 0 (0.00%)
+   Partial solutions (0% < pass < 100%): 86 (71.67%)
+   Failed solutions (0% pass): 34 (28.33%)
+
+📈 Pass Rate Distribution (bins):
+   [0.0, 0.1): 35 solutions (29.17%)
+   [0.1, 0.2): 0 solutions (0.00%)
+   [0.2, 0.3): 2 solutions (1.67%)
+   [0.3, 0.4): 4 solutions (3.33%)
+   [0.4, 0.5): 9 solutions (7.50%)
+   [0.5, 0.6): 22 solutions (18.33%)
+   [0.6, 0.7): 23 solutions (19.17%)
+   [0.7, 0.8): 25 solutions (20.83%)
+   [0.8, 0.9): 0 solutions (0.00%)
+   [0.9, 1.0): 0 solutions (0.00%)
+
+🧩 Problem-level Analysis:
+   Average pass rate per problem: 0.3786 ± 0.2405
+   Best solution per problem: 0.4729 ± 0.2925
+   Worst solution per problem: 0.0000 ± 0.0000
+
+🎚️  Problem Difficulty (based on best solution):
+   Easy (≥80% pass): 0 (0.00%)
+   Medium (40-80% pass): 3 (75.00%)
+   Hard (<40% pass): 1 (25.00%)
+
+🧪 Test Case Analysis:
+   Total test cases: 6168
+   Passed test cases: 2962 (48.02%)
+   Failed test cases: 3206 (51.98%)
+   Overall test pass rate: 0.4802 (48.02%)
+   Avg test cases per solution: 51.40 ± 22.15
+   Min/Max test cases: 13/72
+
+   📋 Failure Reasons:
+     pass: 2962 (48.02%)
+     fail: 2327 (37.73%)
+     unexecuted: 586 (9.50%)
+     timeout: 217 (3.52%)
+     syntax_error: 76 (1.23%)
+
+   ❌ Error Analysis:
+     Test cases with errors: 467 (7.57%)
+     Top error messages:
+       217x (46.5%): Timed out!
+       136x (29.1%): name 'load_testing_time' is not defined
+       30x (6.4%): '[' was never closed (<string>, line 1)
+       30x (6.4%): invalid syntax (<string>, line 1)
+       30x (6.4%): (34, 'Numerical result out of range')
+
+   ⏱️  Timeout Analysis:
+     Timeout test cases: 217 (3.52%)
+
+   ⏰ Time Limit Analysis:
+     Average time limit: 1.00s ± 0.00s
+     Min/Max time limit: 1.00s / 1.00s
+     Time limit distribution:
+       1s: 6168 tests (100.00%)
+
+🏆 Top 5 Easiest Problems (by best solution pass rate):
+   1. Problem 0: 0.7917 (avg: 0.6565)
+   2. Problem 1: 0.6000 (avg: 0.4824)
+   3. Problem 3: 0.5000 (avg: 0.3754)
+   4. Problem 2: 0.0000 (avg: 0.0000)
+
+💀 Top 5 Hardest Problems (by best solution pass rate):
+   1. Problem 2: 0.0000 (avg: 0.0000)
+   2. Problem 3: 0.5000 (avg: 0.3754)
+   3. Problem 1: 0.6000 (avg: 0.4824)
+   4. Problem 0: 0.7917 (avg: 0.6565)
+================================================================================

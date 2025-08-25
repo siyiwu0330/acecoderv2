@@ -1,0 +1,97 @@
+
+================================================================================
+EVALUATION STATISTICS
+================================================================================
+📊 Basic Info:
+   Total problems: 4
+   Total solutions: 97
+   Solutions per problem: 24
+
+🎯 Pass Rate Statistics:
+   Mean pass rate: 0.4831 (48.31%)
+   Median pass rate: 0.3095 (30.95%)
+   Std deviation: 0.4191
+   Solutions per problem (variable): 97/4 = 24.0 avg
+   Pass@k statistics skipped (non-uniform solution distribution)
+   Min pass rate: 0.0000 (0.00%)
+   Max pass rate: 1.0000 (100.00%)
+   Total solutions with pass rate 1.0: 34
+   Percentiles:
+     25th: 0.0000 (0.00%)
+     50th: 0.3095 (30.95%)
+     75th: 1.0000 (100.00%)
+     90th: 1.0000 (100.00%)
+     95th: 1.0000 (100.00%)
+     99th: 1.0000 (100.00%)
+
+✅ Solution Quality Distribution:
+   Perfect solutions (100% pass): 34 (35.05%)
+   Partial solutions (0% < pass < 100%): 34 (35.05%)
+   Failed solutions (0% pass): 29 (29.90%)
+
+📈 Pass Rate Distribution (bins):
+   [0.0, 0.1): 29 solutions (29.90%)
+   [0.1, 0.2): 1 solutions (1.03%)
+   [0.2, 0.3): 1 solutions (1.03%)
+   [0.3, 0.4): 25 solutions (25.77%)
+   [0.4, 0.5): 0 solutions (0.00%)
+   [0.5, 0.6): 1 solutions (1.03%)
+   [0.6, 0.7): 1 solutions (1.03%)
+   [0.7, 0.8): 5 solutions (5.15%)
+   [0.8, 0.9): 0 solutions (0.00%)
+   [0.9, 1.0): 34 solutions (35.05%)
+
+🧩 Problem-level Analysis:
+   Average pass rate per problem: 0.4126 ± 0.2972
+   Best solution per problem: 0.5774 ± 0.4366
+   Worst solution per problem: 0.0000 ± 0.0000
+
+🎚️  Problem Difficulty (based on best solution):
+   Easy (≥80% pass): 2 (50.00%)
+   Medium (40-80% pass): 0 (0.00%)
+   Hard (<40% pass): 2 (50.00%)
+
+🧪 Test Case Analysis:
+   Total test cases: 2377
+   Passed test cases: 1028 (43.25%)
+   Failed test cases: 1349 (56.75%)
+   Overall test pass rate: 0.4325 (43.25%)
+   Avg test cases per solution: 24.51 ± 11.98
+   Min/Max test cases: 12/42
+
+   📋 Failure Reasons:
+     pass: 1028 (43.25%)
+     fail: 1020 (42.91%)
+     unexecuted: 321 (13.50%)
+     timeout: 8 (0.34%)
+
+   ❌ Error Analysis:
+     Test cases with errors: 774 (32.56%)
+     Top error messages:
+       728x (94.1%): cannot unpack non-iterable int object
+       26x (3.4%): name 'n' is not defined
+       9x (1.2%): maximum recursion depth exceeded while calling a Python object
+       8x (1.0%): Timed out!
+       3x (0.4%): dictionary changed size during iteration
+
+   ⏱️  Timeout Analysis:
+     Timeout test cases: 8 (0.34%)
+
+   ⏰ Time Limit Analysis:
+     Average time limit: 1.00s ± 0.00s
+     Min/Max time limit: 1.00s / 1.00s
+     Time limit distribution:
+       1s: 2377 tests (100.00%)
+
+🏆 Top 5 Easiest Problems (by best solution pass rate):
+   1. Problem 3: 1.0000 (avg: 0.7483)
+   2. Problem 1: 1.0000 (avg: 0.6346)
+   3. Problem 0: 0.3095 (avg: 0.2675)
+   4. Problem 2: 0.0000 (avg: 0.0000)
+
+💀 Top 5 Hardest Problems (by best solution pass rate):
+   1. Problem 2: 0.0000 (avg: 0.0000)
+   2. Problem 0: 0.3095 (avg: 0.2675)
+   3. Problem 1: 1.0000 (avg: 0.6346)
+   4. Problem 3: 1.0000 (avg: 0.7483)
+================================================================================

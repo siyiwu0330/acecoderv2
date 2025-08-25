@@ -1,0 +1,101 @@
+
+================================================================================
+EVALUATION STATISTICS
+================================================================================
+📊 Basic Info:
+   Total problems: 76
+   Total solutions: 3119
+   Solutions per problem: 41
+
+🎯 Pass Rate Statistics:
+   Mean pass rate: 0.4981 (49.81%)
+   Median pass rate: 0.5500 (55.00%)
+   Std deviation: 0.3417
+   Solutions per problem (variable): 3119/76 = 41.0 avg
+   Pass@k statistics skipped (non-uniform solution distribution)
+   Min pass rate: 0.0000 (0.00%)
+   Max pass rate: 1.0000 (100.00%)
+   Total solutions with pass rate 1.0: 151
+   Percentiles:
+     25th: 0.1500 (15.00%)
+     50th: 0.5500 (55.00%)
+     75th: 0.8000 (80.00%)
+     90th: 0.9100 (91.00%)
+     95th: 0.9500 (95.00%)
+     99th: 1.0000 (100.00%)
+
+✅ Solution Quality Distribution:
+   Perfect solutions (100% pass): 151 (4.84%)
+   Partial solutions (0% < pass < 100%): 2324 (74.51%)
+   Failed solutions (0% pass): 644 (20.65%)
+
+📈 Pass Rate Distribution (bins):
+   [0.0, 0.1): 677 solutions (21.71%)
+   [0.1, 0.2): 112 solutions (3.59%)
+   [0.2, 0.3): 108 solutions (3.46%)
+   [0.3, 0.4): 262 solutions (8.40%)
+   [0.4, 0.5): 259 solutions (8.30%)
+   [0.5, 0.6): 219 solutions (7.02%)
+   [0.6, 0.7): 248 solutions (7.95%)
+   [0.7, 0.8): 390 solutions (12.50%)
+   [0.8, 0.9): 359 solutions (11.51%)
+   [0.9, 1.0): 485 solutions (15.55%)
+
+🧩 Problem-level Analysis:
+   Average pass rate per problem: 0.4755 ± 0.2887
+   Best solution per problem: 0.5971 ± 0.3141
+   Worst solution per problem: 0.0425 ± 0.1524
+
+🎚️  Problem Difficulty (based on best solution):
+   Easy (≥80% pass): 26 (34.21%)
+   Medium (40-80% pass): 33 (43.42%)
+   Hard (<40% pass): 17 (22.37%)
+
+🧪 Test Case Analysis:
+   Total test cases: 61917
+   Passed test cases: 30998 (50.06%)
+   Failed test cases: 30919 (49.94%)
+   Overall test pass rate: 0.5006 (50.06%)
+   Avg test cases per solution: 19.85 ± 0.54
+   Min/Max test cases: 17/20
+
+   📋 Failure Reasons:
+     pass: 30998 (50.06%)
+     fail: 25499 (41.18%)
+     syntax_error: 2262 (3.65%)
+     unexecuted: 1604 (2.59%)
+     timeout: 1054 (1.70%)
+     missing_dependency: 500 (0.81%)
+
+   ❌ Error Analysis:
+     Test cases with errors: 10033 (16.20%)
+     Top error messages:
+       1054x (10.5%): Timed out!
+       940x (9.4%): unsupported operand type(s) for +: 'int' and 'function'
+       900x (9.0%): unsupported operand type(s) for -: 'NoneType' and 'list'
+       860x (8.6%): unsupported operand type(s) for -: 'NoneType' and 'float'
+       810x (8.1%): name 'used' is not defined
+
+   ⏱️  Timeout Analysis:
+     Timeout test cases: 1054 (1.70%)
+
+   ⏰ Time Limit Analysis:
+     Average time limit: 1.00s ± 0.00s
+     Min/Max time limit: 1.00s / 1.00s
+     Time limit distribution:
+       1s: 61917 tests (100.00%)
+
+🏆 Top 5 Easiest Problems (by best solution pass rate):
+   1. Problem 30: 1.0000 (avg: 0.9737)
+   2. Problem 26: 1.0000 (avg: 0.9643)
+   3. Problem 9: 1.0000 (avg: 0.6837)
+   4. Problem 59: 1.0000 (avg: 0.9439)
+   5. Problem 44: 0.9500 (avg: 0.9106)
+
+💀 Top 5 Hardest Problems (by best solution pass rate):
+   1. Problem 2: 0.0000 (avg: 0.0000)
+   2. Problem 11: 0.0000 (avg: 0.0000)
+   3. Problem 17: 0.0000 (avg: 0.0000)
+   4. Problem 54: 0.0000 (avg: 0.0000)
+   5. Problem 48: 0.0000 (avg: 0.0000)
+================================================================================

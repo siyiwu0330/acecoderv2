@@ -1,0 +1,27 @@
+version: '3.8'
+
+# Development override for docker-compose.yml
+# Use with: docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+
+services:
+  acecoderv2:
+    volumes:
+      # Mount source code for live development
+      - .:/home/acecoder/app
+      # Exclude certain directories to avoid conflicts
+      - /home/acecoder/app/__pycache__
+      - /home/acecoder/app/.git
+    environment:
+      - PYTHONPATH=/home/acecoder/app
+      - FLASK_ENV=development
+      - GRADIO_DEBUG=1
+    command: >
+      bash -c "
+        echo 'Starting in development mode...' &&
+        pip install -e . &&
+        python advsersial_prompt/integrated_gradio_app.py
+      "
+    # Enable debugging
+    stdin_open: true
+    tty: true
+

@@ -1,0 +1,97 @@
+
+================================================================================
+EVALUATION STATISTICS
+================================================================================
+📊 Basic Info:
+   Total problems: 4
+   Total solutions: 101
+   Solutions per problem: 25
+
+🎯 Pass Rate Statistics:
+   Mean pass rate: 0.5030 (50.30%)
+   Median pass rate: 0.6500 (65.00%)
+   Std deviation: 0.3376
+   Solutions per problem (variable): 101/4 = 25.0 avg
+   Pass@k statistics skipped (non-uniform solution distribution)
+   Min pass rate: 0.0000 (0.00%)
+   Max pass rate: 1.0000 (100.00%)
+   Total solutions with pass rate 1.0: 6
+   Percentiles:
+     25th: 0.0000 (0.00%)
+     50th: 0.6500 (65.00%)
+     75th: 0.7500 (75.00%)
+     90th: 0.7500 (75.00%)
+     95th: 1.0000 (100.00%)
+     99th: 1.0000 (100.00%)
+
+✅ Solution Quality Distribution:
+   Perfect solutions (100% pass): 6 (5.94%)
+   Partial solutions (0% < pass < 100%): 66 (65.35%)
+   Failed solutions (0% pass): 29 (28.71%)
+
+📈 Pass Rate Distribution (bins):
+   [0.0, 0.1): 29 solutions (28.71%)
+   [0.1, 0.2): 0 solutions (0.00%)
+   [0.2, 0.3): 0 solutions (0.00%)
+   [0.3, 0.4): 3 solutions (2.97%)
+   [0.4, 0.5): 1 solutions (0.99%)
+   [0.5, 0.6): 0 solutions (0.00%)
+   [0.6, 0.7): 22 solutions (21.78%)
+   [0.7, 0.8): 39 solutions (38.61%)
+   [0.8, 0.9): 1 solutions (0.99%)
+   [0.9, 1.0): 6 solutions (5.94%)
+
+🧩 Problem-level Analysis:
+   Average pass rate per problem: 0.4214 ± 0.2468
+   Best solution per problem: 0.6000 ± 0.3691
+   Worst solution per problem: 0.0000 ± 0.0000
+
+🎚️  Problem Difficulty (based on best solution):
+   Easy (≥80% pass): 1 (25.00%)
+   Medium (40-80% pass): 2 (50.00%)
+   Hard (<40% pass): 1 (25.00%)
+
+🧪 Test Case Analysis:
+   Total test cases: 2020
+   Passed test cases: 1016 (50.30%)
+   Failed test cases: 1004 (49.70%)
+   Overall test pass rate: 0.5030 (50.30%)
+   Avg test cases per solution: 20.00 ± 0.00
+   Min/Max test cases: 20/20
+
+   📋 Failure Reasons:
+     pass: 1016 (50.30%)
+     fail: 561 (27.77%)
+     unexecuted: 440 (21.78%)
+     timeout: 3 (0.15%)
+
+   ❌ Error Analysis:
+     Test cases with errors: 66 (3.27%)
+     Top error messages:
+       40x (60.6%): name 'predict_next_four_fib' is not defined
+       18x (27.3%): integer division or modulo by zero
+       3x (4.5%): Timed out!
+       2x (3.0%): 'NoneType' object is not subscriptable
+       2x (3.0%): (34, 'Numerical result out of range')
+
+   ⏱️  Timeout Analysis:
+     Timeout test cases: 3 (0.15%)
+
+   ⏰ Time Limit Analysis:
+     Average time limit: 1.00s ± 0.00s
+     Min/Max time limit: 1.00s / 1.00s
+     Time limit distribution:
+       1s: 2020 tests (100.00%)
+
+🏆 Top 5 Easiest Problems (by best solution pass rate):
+   1. Problem 3: 1.0000 (avg: 0.6141)
+   2. Problem 1: 0.7500 (avg: 0.5733)
+   3. Problem 0: 0.6500 (avg: 0.4982)
+   4. Problem 2: 0.0000 (avg: 0.0000)
+
+💀 Top 5 Hardest Problems (by best solution pass rate):
+   1. Problem 2: 0.0000 (avg: 0.0000)
+   2. Problem 0: 0.6500 (avg: 0.4982)
+   3. Problem 1: 0.7500 (avg: 0.5733)
+   4. Problem 3: 1.0000 (avg: 0.6141)
+================================================================================

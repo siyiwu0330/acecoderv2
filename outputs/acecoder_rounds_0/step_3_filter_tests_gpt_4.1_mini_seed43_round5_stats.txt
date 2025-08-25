@@ -1,0 +1,94 @@
+
+================================================================================
+EVALUATION STATISTICS
+================================================================================
+📊 Basic Info:
+   Total problems: 4
+   Total solutions: 99
+   Solutions per problem: 24
+
+🎯 Pass Rate Statistics:
+   Mean pass rate: 0.3175 (31.75%)
+   Median pass rate: 0.0000 (0.00%)
+   Std deviation: 0.4544
+   Solutions per problem (variable): 99/4 = 24.0 avg
+   Pass@k statistics skipped (non-uniform solution distribution)
+   Min pass rate: 0.0000 (0.00%)
+   Max pass rate: 1.0000 (100.00%)
+   Total solutions with pass rate 1.0: 28
+   Percentiles:
+     25th: 0.0000 (0.00%)
+     50th: 0.0000 (0.00%)
+     75th: 1.0000 (100.00%)
+     90th: 1.0000 (100.00%)
+     95th: 1.0000 (100.00%)
+     99th: 1.0000 (100.00%)
+
+✅ Solution Quality Distribution:
+   Perfect solutions (100% pass): 28 (28.28%)
+   Partial solutions (0% < pass < 100%): 6 (6.06%)
+   Failed solutions (0% pass): 65 (65.66%)
+
+📈 Pass Rate Distribution (bins):
+   [0.0, 0.1): 65 solutions (65.66%)
+   [0.1, 0.2): 0 solutions (0.00%)
+   [0.2, 0.3): 2 solutions (2.02%)
+   [0.3, 0.4): 0 solutions (0.00%)
+   [0.4, 0.5): 0 solutions (0.00%)
+   [0.5, 0.6): 0 solutions (0.00%)
+   [0.6, 0.7): 0 solutions (0.00%)
+   [0.7, 0.8): 3 solutions (3.03%)
+   [0.8, 0.9): 0 solutions (0.00%)
+   [0.9, 1.0): 29 solutions (29.29%)
+
+🧩 Problem-level Analysis:
+   Average pass rate per problem: 0.2956 ± 0.3068
+   Best solution per problem: 0.5000 ± 0.5000
+   Worst solution per problem: 0.0000 ± 0.0000
+
+🎚️  Problem Difficulty (based on best solution):
+   Easy (≥80% pass): 2 (50.00%)
+   Medium (40-80% pass): 0 (0.00%)
+   Hard (<40% pass): 2 (50.00%)
+
+🧪 Test Case Analysis:
+   Total test cases: 829
+   Passed test cases: 424 (51.15%)
+   Failed test cases: 405 (48.85%)
+   Overall test pass rate: 0.5115 (51.15%)
+   Avg test cases per solution: 8.37 ± 5.13
+   Min/Max test cases: 3/15
+
+   📋 Failure Reasons:
+     pass: 424 (51.15%)
+     unexecuted: 197 (23.76%)
+     fail: 139 (16.77%)
+     syntax_error: 69 (8.32%)
+
+   ❌ Error Analysis:
+     Test cases with errors: 128 (15.44%)
+     Top error messages:
+       69x (53.9%): unmatched ')' (<string>, line 7)
+       15x (11.7%): name 'fib_lucas' is not defined
+       15x (11.7%): name 'predict_next_fibonacci' is not defined
+       10x (7.8%): name 'max_weight_independent_set_with_path_constraint' is not defined
+       10x (7.8%): name 'sys' is not defined
+
+   ⏰ Time Limit Analysis:
+     Average time limit: 1.00s ± 0.00s
+     Min/Max time limit: 1.00s / 1.00s
+     Time limit distribution:
+       1s: 829 tests (100.00%)
+
+🏆 Top 5 Easiest Problems (by best solution pass rate):
+   1. Problem 0: 1.0000 (avg: 0.4750)
+   2. Problem 1: 1.0000 (avg: 0.7075)
+   3. Problem 2: 0.0000 (avg: 0.0000)
+   4. Problem 3: 0.0000 (avg: 0.0000)
+
+💀 Top 5 Hardest Problems (by best solution pass rate):
+   1. Problem 3: 0.0000 (avg: 0.0000)
+   2. Problem 2: 0.0000 (avg: 0.0000)
+   3. Problem 1: 1.0000 (avg: 0.7075)
+   4. Problem 0: 1.0000 (avg: 0.4750)
+================================================================================

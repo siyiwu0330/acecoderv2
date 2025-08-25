@@ -1,0 +1,98 @@
+
+================================================================================
+EVALUATION STATISTICS
+================================================================================
+📊 Basic Info:
+   Total problems: 4
+   Total solutions: 153
+   Solutions per problem: 38
+
+🎯 Pass Rate Statistics:
+   Mean pass rate: 0.4140 (41.40%)
+   Median pass rate: 0.5588 (55.88%)
+   Std deviation: 0.3933
+   Solutions per problem (variable): 153/4 = 38.0 avg
+   Pass@k statistics skipped (non-uniform solution distribution)
+   Min pass rate: 0.0000 (0.00%)
+   Max pass rate: 0.9167 (91.67%)
+   Total solutions with pass rate 1.0: 0
+   Percentiles:
+     25th: 0.0000 (0.00%)
+     50th: 0.5588 (55.88%)
+     75th: 0.7647 (76.47%)
+     90th: 0.9167 (91.67%)
+     95th: 0.9167 (91.67%)
+     99th: 0.9167 (91.67%)
+
+✅ Solution Quality Distribution:
+   Perfect solutions (100% pass): 0 (0.00%)
+   Partial solutions (0% < pass < 100%): 86 (56.21%)
+   Failed solutions (0% pass): 67 (43.79%)
+
+📈 Pass Rate Distribution (bins):
+   [0.0, 0.1): 67 solutions (43.79%)
+   [0.1, 0.2): 3 solutions (1.96%)
+   [0.2, 0.3): 1 solutions (0.65%)
+   [0.3, 0.4): 0 solutions (0.00%)
+   [0.4, 0.5): 1 solutions (0.65%)
+   [0.5, 0.6): 24 solutions (15.69%)
+   [0.6, 0.7): 2 solutions (1.31%)
+   [0.7, 0.8): 19 solutions (12.42%)
+   [0.8, 0.9): 0 solutions (0.00%)
+   [0.9, 1.0): 36 solutions (23.53%)
+
+🧩 Problem-level Analysis:
+   Average pass rate per problem: 0.3519 ± 0.3604
+   Best solution per problem: 0.4203 ± 0.4238
+   Worst solution per problem: 0.0294 ± 0.0509
+
+🎚️  Problem Difficulty (based on best solution):
+   Easy (≥80% pass): 1 (25.00%)
+   Medium (40-80% pass): 1 (25.00%)
+   Hard (<40% pass): 2 (50.00%)
+
+🧪 Test Case Analysis:
+   Total test cases: 4511
+   Passed test cases: 2227 (49.37%)
+   Failed test cases: 2284 (50.63%)
+   Overall test pass rate: 0.4937 (49.37%)
+   Avg test cases per solution: 29.48 ± 8.75
+   Min/Max test cases: 7/36
+
+   📋 Failure Reasons:
+     pass: 2227 (49.37%)
+     fail: 2178 (48.28%)
+     syntax_error: 92 (2.04%)
+     unexecuted: 7 (0.16%)
+     timeout: 7 (0.16%)
+
+   ❌ Error Analysis:
+     Test cases with errors: 818 (18.13%)
+     Top error messages:
+       506x (61.9%): <lambda>.<locals>.<lambda>.<locals>.<lambda>.<locals>.<lambda>() argument after * must be an iterabl...
+       196x (24.0%): name 'function' is not defined
+       92x (11.2%): invalid syntax (<string>, line 1)
+       10x (1.2%): math domain error
+       7x (0.9%): name 'idx' is not defined
+
+   ⏱️  Timeout Analysis:
+     Timeout test cases: 7 (0.16%)
+
+   ⏰ Time Limit Analysis:
+     Average time limit: 1.00s ± 0.00s
+     Min/Max time limit: 1.00s / 1.00s
+     Time limit distribution:
+       1s: 4511 tests (100.00%)
+
+🏆 Top 5 Easiest Problems (by best solution pass rate):
+   1. Problem 0: 0.9167 (avg: 0.8136)
+   2. Problem 3: 0.7647 (avg: 0.5941)
+   3. Problem 2: 0.0000 (avg: 0.0000)
+   4. Problem 1: 0.0000 (avg: 0.0000)
+
+💀 Top 5 Hardest Problems (by best solution pass rate):
+   1. Problem 1: 0.0000 (avg: 0.0000)
+   2. Problem 2: 0.0000 (avg: 0.0000)
+   3. Problem 3: 0.7647 (avg: 0.5941)
+   4. Problem 0: 0.9167 (avg: 0.8136)
+================================================================================

@@ -1,0 +1,94 @@
+
+================================================================================
+EVALUATION STATISTICS
+================================================================================
+📊 Basic Info:
+   Total problems: 4
+   Total solutions: 94
+   Solutions per problem: 23
+
+🎯 Pass Rate Statistics:
+   Mean pass rate: 0.1878 (18.78%)
+   Median pass rate: 0.0000 (0.00%)
+   Std deviation: 0.2928
+   Solutions per problem (variable): 94/4 = 23.0 avg
+   Pass@k statistics skipped (non-uniform solution distribution)
+   Min pass rate: 0.0000 (0.00%)
+   Max pass rate: 0.7500 (75.00%)
+   Total solutions with pass rate 1.0: 0
+   Percentiles:
+     25th: 0.0000 (0.00%)
+     50th: 0.0000 (0.00%)
+     75th: 0.5000 (50.00%)
+     90th: 0.7500 (75.00%)
+     95th: 0.7500 (75.00%)
+     99th: 0.7500 (75.00%)
+
+✅ Solution Quality Distribution:
+   Perfect solutions (100% pass): 0 (0.00%)
+   Partial solutions (0% < pass < 100%): 31 (32.98%)
+   Failed solutions (0% pass): 63 (67.02%)
+
+📈 Pass Rate Distribution (bins):
+   [0.0, 0.1): 65 solutions (69.15%)
+   [0.1, 0.2): 0 solutions (0.00%)
+   [0.2, 0.3): 0 solutions (0.00%)
+   [0.3, 0.4): 3 solutions (3.19%)
+   [0.4, 0.5): 1 solutions (1.06%)
+   [0.5, 0.6): 10 solutions (10.64%)
+   [0.6, 0.7): 0 solutions (0.00%)
+   [0.7, 0.8): 15 solutions (15.96%)
+   [0.8, 0.9): 0 solutions (0.00%)
+   [0.9, 1.0): 0 solutions (0.00%)
+
+🧩 Problem-level Analysis:
+   Average pass rate per problem: 0.1682 ± 0.1727
+   Best solution per problem: 0.3125 ± 0.3248
+   Worst solution per problem: 0.0000 ± 0.0000
+
+🎚️  Problem Difficulty (based on best solution):
+   Easy (≥80% pass): 0 (0.00%)
+   Medium (40-80% pass): 2 (50.00%)
+   Hard (<40% pass): 2 (50.00%)
+
+🧪 Test Case Analysis:
+   Total test cases: 1799
+   Passed test cases: 353 (19.62%)
+   Failed test cases: 1446 (80.38%)
+   Overall test pass rate: 0.1962 (19.62%)
+   Avg test cases per solution: 19.14 ± 1.36
+   Min/Max test cases: 17/20
+
+   📋 Failure Reasons:
+     syntax_error: 506 (28.13%)
+     unexecuted: 474 (26.35%)
+     fail: 466 (25.90%)
+     pass: 353 (19.62%)
+
+   ❌ Error Analysis:
+     Test cases with errors: 683 (37.97%)
+     Top error messages:
+       425x (62.2%): unmatched ')' (<string>, line 7)
+       83x (12.2%): name 'MOD' is not defined
+       81x (11.9%): invalid syntax (<string>, line 1)
+       40x (5.9%): name 'max_weight_independent_set_with_path_constraint' is not defined
+       34x (5.0%): name 'predict_next_fibonacci' is not defined
+
+   ⏰ Time Limit Analysis:
+     Average time limit: 1.00s ± 0.00s
+     Min/Max time limit: 1.00s / 1.00s
+     Time limit distribution:
+       1s: 1799 tests (100.00%)
+
+🏆 Top 5 Easiest Problems (by best solution pass rate):
+   1. Problem 1: 0.7500 (avg: 0.3917)
+   2. Problem 0: 0.5000 (avg: 0.2810)
+   3. Problem 2: 0.0000 (avg: 0.0000)
+   4. Problem 3: 0.0000 (avg: 0.0000)
+
+💀 Top 5 Hardest Problems (by best solution pass rate):
+   1. Problem 3: 0.0000 (avg: 0.0000)
+   2. Problem 2: 0.0000 (avg: 0.0000)
+   3. Problem 0: 0.5000 (avg: 0.2810)
+   4. Problem 1: 0.7500 (avg: 0.3917)
+================================================================================

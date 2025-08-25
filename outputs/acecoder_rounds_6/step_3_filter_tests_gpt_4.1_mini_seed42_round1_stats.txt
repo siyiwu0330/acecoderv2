@@ -1,0 +1,101 @@
+
+================================================================================
+EVALUATION STATISTICS
+================================================================================
+📊 Basic Info:
+   Total problems: 76
+   Total solutions: 3110
+   Solutions per problem: 40
+
+🎯 Pass Rate Statistics:
+   Mean pass rate: 0.6134 (61.34%)
+   Median pass rate: 0.7500 (75.00%)
+   Std deviation: 0.3895
+   Solutions per problem (variable): 3110/76 = 40.0 avg
+   Pass@k statistics skipped (non-uniform solution distribution)
+   Min pass rate: 0.0000 (0.00%)
+   Max pass rate: 1.0000 (100.00%)
+   Total solutions with pass rate 1.0: 894
+   Percentiles:
+     25th: 0.1667 (16.67%)
+     50th: 0.7500 (75.00%)
+     75th: 1.0000 (100.00%)
+     90th: 1.0000 (100.00%)
+     95th: 1.0000 (100.00%)
+     99th: 1.0000 (100.00%)
+
+✅ Solution Quality Distribution:
+   Perfect solutions (100% pass): 894 (28.75%)
+   Partial solutions (0% < pass < 100%): 1525 (49.04%)
+   Failed solutions (0% pass): 691 (22.22%)
+
+📈 Pass Rate Distribution (bins):
+   [0.0, 0.1): 711 solutions (22.86%)
+   [0.1, 0.2): 71 solutions (2.28%)
+   [0.2, 0.3): 10 solutions (0.32%)
+   [0.3, 0.4): 47 solutions (1.51%)
+   [0.4, 0.5): 106 solutions (3.41%)
+   [0.5, 0.6): 333 solutions (10.71%)
+   [0.6, 0.7): 239 solutions (7.68%)
+   [0.7, 0.8): 153 solutions (4.92%)
+   [0.8, 0.9): 187 solutions (6.01%)
+   [0.9, 1.0): 1253 solutions (40.29%)
+
+🧩 Problem-level Analysis:
+   Average pass rate per problem: 0.5906 ± 0.3134
+   Best solution per problem: 0.7480 ± 0.3548
+   Worst solution per problem: 0.0868 ± 0.2228
+
+🎚️  Problem Difficulty (based on best solution):
+   Easy (≥80% pass): 49 (64.47%)
+   Medium (40-80% pass): 15 (19.74%)
+   Hard (<40% pass): 12 (15.79%)
+
+🧪 Test Case Analysis:
+   Total test cases: 39146
+   Passed test cases: 24279 (62.02%)
+   Failed test cases: 14867 (37.98%)
+   Overall test pass rate: 0.6202 (62.02%)
+   Avg test cases per solution: 12.59 ± 1.77
+   Min/Max test cases: 10/20
+
+   📋 Failure Reasons:
+     pass: 24279 (62.02%)
+     fail: 11500 (29.38%)
+     syntax_error: 1491 (3.81%)
+     unexecuted: 1041 (2.66%)
+     timeout: 523 (1.34%)
+     missing_dependency: 312 (0.80%)
+
+   ❌ Error Analysis:
+     Test cases with errors: 5906 (15.09%)
+     Top error messages:
+       564x (9.5%): unsupported operand type(s) for -: 'NoneType' and 'list'
+       552x (9.3%): unsupported operand type(s) for +: 'int' and 'function'
+       528x (8.9%): unsupported operand type(s) for -: 'NoneType' and 'float'
+       523x (8.9%): Timed out!
+       484x (8.2%): invalid syntax. Perhaps you forgot a comma? (<string>, line 1)
+
+   ⏱️  Timeout Analysis:
+     Timeout test cases: 523 (1.34%)
+
+   ⏰ Time Limit Analysis:
+     Average time limit: 1.00s ± 0.00s
+     Min/Max time limit: 1.00s / 1.00s
+     Time limit distribution:
+       1s: 39146 tests (100.00%)
+
+🏆 Top 5 Easiest Problems (by best solution pass rate):
+   1. Problem 74: 1.0000 (avg: 0.6097)
+   2. Problem 73: 1.0000 (avg: 0.9375)
+   3. Problem 69: 1.0000 (avg: 0.5810)
+   4. Problem 71: 1.0000 (avg: 0.7324)
+   5. Problem 66: 1.0000 (avg: 0.7868)
+
+💀 Top 5 Hardest Problems (by best solution pass rate):
+   1. Problem 2: 0.0000 (avg: 0.0000)
+   2. Problem 11: 0.0000 (avg: 0.0000)
+   3. Problem 17: 0.0000 (avg: 0.0000)
+   4. Problem 54: 0.0000 (avg: 0.0000)
+   5. Problem 48: 0.0000 (avg: 0.0000)
+================================================================================

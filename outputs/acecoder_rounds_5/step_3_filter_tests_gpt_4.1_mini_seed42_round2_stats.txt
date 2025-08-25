@@ -1,0 +1,105 @@
+
+================================================================================
+EVALUATION STATISTICS
+================================================================================
+📊 Basic Info:
+   Total problems: 4
+   Total solutions: 88
+   Solutions per problem: 22
+
+🎯 Pass Rate Statistics:
+   Mean pass rate: 0.4765 (47.65%)
+   Median pass rate: 0.5044 (50.44%)
+   Std deviation: 0.1350
+   Solutions per problem (uniform): 22
+
+📈 Pass@k Statistics:
+   Pass@1: 0.0000 (0.00%)
+   Pass@2: 0.0000 (0.00%)
+   Pass@4: 0.0000 (0.00%)
+   Pass@8: 0.0000 (0.00%)
+   Pass@16: 0.0000 (0.00%)
+   Pass@22: 0.0000 (0.00%)
+   Min pass rate: 0.0000 (0.00%)
+   Max pass rate: 0.5833 (58.33%)
+   Total solutions with pass rate 1.0: 0
+   Percentiles:
+     25th: 0.4211 (42.11%)
+     50th: 0.5044 (50.44%)
+     75th: 0.5833 (58.33%)
+     90th: 0.5833 (58.33%)
+     95th: 0.5833 (58.33%)
+     99th: 0.5833 (58.33%)
+
+✅ Solution Quality Distribution:
+   Perfect solutions (100% pass): 0 (0.00%)
+   Partial solutions (0% < pass < 100%): 84 (95.45%)
+   Failed solutions (0% pass): 4 (4.55%)
+
+📈 Pass Rate Distribution (bins):
+   [0.0, 0.1): 4 solutions (4.55%)
+   [0.1, 0.2): 1 solutions (1.14%)
+   [0.2, 0.3): 1 solutions (1.14%)
+   [0.3, 0.4): 3 solutions (3.41%)
+   [0.4, 0.5): 34 solutions (38.64%)
+   [0.5, 0.6): 45 solutions (51.14%)
+   [0.6, 0.7): 0 solutions (0.00%)
+   [0.7, 0.8): 0 solutions (0.00%)
+   [0.8, 0.9): 0 solutions (0.00%)
+   [0.9, 1.0): 0 solutions (0.00%)
+
+🧩 Problem-level Analysis:
+   Average pass rate per problem: 0.2489 ± 0.2524
+   Best solution per problem: 0.2818 ± 0.2821
+   Worst solution per problem: 0.1075 ± 0.1127
+
+🎚️  Problem Difficulty (based on best solution):
+   Easy (≥80% pass): 0 (0.00%)
+   Medium (40-80% pass): 2 (50.00%)
+   Hard (<40% pass): 2 (50.00%)
+
+🧪 Test Case Analysis:
+   Total test cases: 5031
+   Passed test cases: 2462 (48.94%)
+   Failed test cases: 2569 (51.06%)
+   Overall test pass rate: 0.4894 (48.94%)
+   Avg test cases per solution: 57.17 ± 7.33
+   Min/Max test cases: 12/60
+
+   📋 Failure Reasons:
+     fail: 2540 (50.49%)
+     pass: 2462 (48.94%)
+     unexecuted: 12 (0.24%)
+     timeout: 10 (0.20%)
+     syntax_error: 7 (0.14%)
+
+   ❌ Error Analysis:
+     Test cases with errors: 47 (0.93%)
+     Top error messages:
+       22x (46.8%): <lambda>.<locals>.<lambda>.<locals>.<lambda>.<locals>.<lambda>() argument after * must be an iterabl...
+       10x (21.3%): Timed out!
+       8x (17.0%): max() arg is an empty sequence
+       4x (8.5%): invalid syntax (<string>, line 1)
+       2x (4.3%): '[' was never closed (<string>, line 1)
+
+   ⏱️  Timeout Analysis:
+     Timeout test cases: 10 (0.20%)
+
+   ⏰ Time Limit Analysis:
+     Average time limit: 1.00s ± 0.00s
+     Min/Max time limit: 1.00s / 1.00s
+     Time limit distribution:
+       1s: 5031 tests (100.00%)
+
+🏆 Top 5 Easiest Problems (by best solution pass rate):
+   1. Problem 0: 0.5833 (avg: 0.5574)
+   2. Problem 3: 0.5439 (avg: 0.4382)
+   3. Problem 2: 0.0000 (avg: 0.0000)
+   4. Problem 1: 0.0000 (avg: 0.0000)
+
+💀 Top 5 Hardest Problems (by best solution pass rate):
+   1. Problem 1: 0.0000 (avg: 0.0000)
+   2. Problem 2: 0.0000 (avg: 0.0000)
+   3. Problem 3: 0.5439 (avg: 0.4382)
+   4. Problem 0: 0.5833 (avg: 0.5574)
+================================================================================

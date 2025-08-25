@@ -1,0 +1,94 @@
+
+================================================================================
+EVALUATION STATISTICS
+================================================================================
+📊 Basic Info:
+   Total problems: 4
+   Total solutions: 107
+   Solutions per problem: 26
+
+🎯 Pass Rate Statistics:
+   Mean pass rate: 0.2107 (21.07%)
+   Median pass rate: 0.0000 (0.00%)
+   Std deviation: 0.3153
+   Solutions per problem (variable): 107/4 = 26.0 avg
+   Pass@k statistics skipped (non-uniform solution distribution)
+   Min pass rate: 0.0000 (0.00%)
+   Max pass rate: 0.7500 (75.00%)
+   Total solutions with pass rate 1.0: 0
+   Percentiles:
+     25th: 0.0000 (0.00%)
+     50th: 0.0000 (0.00%)
+     75th: 0.5000 (50.00%)
+     90th: 0.7500 (75.00%)
+     95th: 0.7500 (75.00%)
+     99th: 0.7500 (75.00%)
+
+✅ Solution Quality Distribution:
+   Perfect solutions (100% pass): 0 (0.00%)
+   Partial solutions (0% < pass < 100%): 37 (34.58%)
+   Failed solutions (0% pass): 70 (65.42%)
+
+📈 Pass Rate Distribution (bins):
+   [0.0, 0.1): 70 solutions (65.42%)
+   [0.1, 0.2): 1 solutions (0.93%)
+   [0.2, 0.3): 5 solutions (4.67%)
+   [0.3, 0.4): 0 solutions (0.00%)
+   [0.4, 0.5): 0 solutions (0.00%)
+   [0.5, 0.6): 7 solutions (6.54%)
+   [0.6, 0.7): 0 solutions (0.00%)
+   [0.7, 0.8): 24 solutions (22.43%)
+   [0.8, 0.9): 0 solutions (0.00%)
+   [0.9, 1.0): 0 solutions (0.00%)
+
+🧩 Problem-level Analysis:
+   Average pass rate per problem: 0.1722 ± 0.2049
+   Best solution per problem: 0.3125 ± 0.3248
+   Worst solution per problem: 0.0000 ± 0.0000
+
+🎚️  Problem Difficulty (based on best solution):
+   Easy (≥80% pass): 0 (0.00%)
+   Medium (40-80% pass): 2 (50.00%)
+   Hard (<40% pass): 2 (50.00%)
+
+🧪 Test Case Analysis:
+   Total test cases: 2053
+   Passed test cases: 451 (21.97%)
+   Failed test cases: 1602 (78.03%)
+   Overall test pass rate: 0.2197 (21.97%)
+   Avg test cases per solution: 19.19 ± 1.33
+   Min/Max test cases: 17/20
+
+   📋 Failure Reasons:
+     unexecuted: 597 (29.08%)
+     syntax_error: 569 (27.72%)
+     pass: 451 (21.97%)
+     fail: 436 (21.24%)
+
+   ❌ Error Analysis:
+     Test cases with errors: 650 (31.66%)
+     Top error messages:
+       476x (73.2%): unmatched ')' (<string>, line 7)
+       93x (14.3%): invalid syntax (<string>, line 1)
+       60x (9.2%): name 'sys' is not defined
+       20x (3.1%): name 'max_weight_independent_set_with_path_constraint' is not defined
+       1x (0.2%): negative shift count
+
+   ⏰ Time Limit Analysis:
+     Average time limit: 1.00s ± 0.00s
+     Min/Max time limit: 1.00s / 1.00s
+     Time limit distribution:
+       1s: 2053 tests (100.00%)
+
+🏆 Top 5 Easiest Problems (by best solution pass rate):
+   1. Problem 1: 0.7500 (avg: 0.5014)
+   2. Problem 0: 0.5000 (avg: 0.1875)
+   3. Problem 2: 0.0000 (avg: 0.0000)
+   4. Problem 3: 0.0000 (avg: 0.0000)
+
+💀 Top 5 Hardest Problems (by best solution pass rate):
+   1. Problem 3: 0.0000 (avg: 0.0000)
+   2. Problem 2: 0.0000 (avg: 0.0000)
+   3. Problem 0: 0.5000 (avg: 0.1875)
+   4. Problem 1: 0.7500 (avg: 0.5014)
+================================================================================

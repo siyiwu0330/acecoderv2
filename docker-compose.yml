@@ -1,0 +1,84 @@
+version: '3.8'
+
+services:
+  # Production service - auto-starts web interface
+  acecoderv2:
+    build: .
+    container_name: acecoderv2-app
+    ports:
+      - "7860:7860"  # Gradio interface
+      - "8000:8000"  # Alternative port
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - PYTHONPATH=/home/acecoder/app
+    volumes:
+      # Mount outputs directory to persist results
+      - acecoderv2-outputs:/home/acecoder/app/outputs
+      - acecoderv2-logs:/home/acecoder/app/logs
+    restart: unless-stopped
+    networks:
+      - acecoderv2-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7860/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # Interactive research environment
+  acecoderv2-interactive:
+    build:
+      context: .
+      dockerfile: Dockerfile.interactive
+    container_name: acecoderv2-research
+    ports:
+      - "7861:7860"  # Gradio interface (different port)
+      - "8888:8888"  # Jupyter Lab
+      - "8001:8000"  # Alternative port
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - PYTHONPATH=/workspace
+    volumes:
+      # Persistent data storage
+      - acecoderv2-outputs:/workspace/outputs
+      - acecoderv2-logs:/workspace/logs
+      - acecoderv2-data:/workspace/data
+      - acecoderv2-models:/workspace/models
+      - acecoderv2-experiments:/workspace/experiments
+      - acecoderv2-notebooks:/workspace/notebooks
+    networks:
+      - acecoderv2-network
+    profiles:
+      - research
+    tty: true
+    stdin_open: true
+    command: /home/researcher/startup.sh
+
+  # Optional: Add a simple web server for serving static files
+  nginx:
+    image: nginx:alpine
+    container_name: acecoderv2-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./outputs:/usr/share/nginx/html/outputs:ro
+    depends_on:
+      - acecoderv2
+    networks:
+      - acecoderv2-network
+    profiles:
+      - with-nginx
+
+networks:
+  acecoderv2-network:
+    driver: bridge
+
+volumes:
+  acecoderv2-outputs:
+  acecoderv2-logs:
+  acecoderv2-data:
+  acecoderv2-models:
+  acecoderv2-experiments:
+  acecoderv2-notebooks:
+

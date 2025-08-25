@@ -1,0 +1,93 @@
+
+================================================================================
+EVALUATION STATISTICS
+================================================================================
+📊 Basic Info:
+   Total problems: 2
+   Total solutions: 44
+   Solutions per problem: 22
+
+🎯 Pass Rate Statistics:
+   Mean pass rate: 0.3864 (38.64%)
+   Median pass rate: 0.0000 (0.00%)
+   Std deviation: 0.4869
+   Solutions per problem (uniform): 22
+
+📈 Pass@k Statistics:
+   Pass@1: 0.5000 (50.00%)
+   Pass@2: 0.5000 (50.00%)
+   Pass@4: 0.5000 (50.00%)
+   Pass@8: 0.5000 (50.00%)
+   Pass@16: 0.5000 (50.00%)
+   Pass@22: 0.5000 (50.00%)
+   Min pass rate: 0.0000 (0.00%)
+   Max pass rate: 1.0000 (100.00%)
+   Total solutions with pass rate 1.0: 17
+   Percentiles:
+     25th: 0.0000 (0.00%)
+     50th: 0.0000 (0.00%)
+     75th: 1.0000 (100.00%)
+     90th: 1.0000 (100.00%)
+     95th: 1.0000 (100.00%)
+     99th: 1.0000 (100.00%)
+
+✅ Solution Quality Distribution:
+   Perfect solutions (100% pass): 17 (38.64%)
+   Partial solutions (0% < pass < 100%): 0 (0.00%)
+   Failed solutions (0% pass): 27 (61.36%)
+
+📈 Pass Rate Distribution (bins):
+   [0.0, 0.1): 27 solutions (61.36%)
+   [0.1, 0.2): 0 solutions (0.00%)
+   [0.2, 0.3): 0 solutions (0.00%)
+   [0.3, 0.4): 0 solutions (0.00%)
+   [0.4, 0.5): 0 solutions (0.00%)
+   [0.5, 0.6): 0 solutions (0.00%)
+   [0.6, 0.7): 0 solutions (0.00%)
+   [0.7, 0.8): 0 solutions (0.00%)
+   [0.8, 0.9): 0 solutions (0.00%)
+   [0.9, 1.0): 17 solutions (38.64%)
+
+🧩 Problem-level Analysis:
+   Average pass rate per problem: 0.3864 ± 0.3864
+   Best solution per problem: 0.5000 ± 0.5000
+   Worst solution per problem: 0.0000 ± 0.0000
+
+🎚️  Problem Difficulty (based on best solution):
+   Easy (≥80% pass): 1 (50.00%)
+   Medium (40-80% pass): 0 (0.00%)
+   Hard (<40% pass): 1 (50.00%)
+
+🧪 Test Case Analysis:
+   Total test cases: 242
+   Passed test cases: 119 (49.17%)
+   Failed test cases: 123 (50.83%)
+   Overall test pass rate: 0.4917 (49.17%)
+   Avg test cases per solution: 5.50 ± 1.50
+   Min/Max test cases: 4/7
+
+   📋 Failure Reasons:
+     pass: 119 (49.17%)
+     fail: 76 (31.40%)
+     unexecuted: 47 (19.42%)
+
+   ❌ Error Analysis:
+     Test cases with errors: 20 (8.26%)
+     Top error messages:
+       12x (60.0%): name 'score' is not defined
+       8x (40.0%): name 'classify_documents' is not defined
+
+   ⏰ Time Limit Analysis:
+     Average time limit: 1.00s ± 0.00s
+     Min/Max time limit: 1.00s / 1.00s
+     Time limit distribution:
+       1s: 242 tests (100.00%)
+
+🏆 Top 5 Easiest Problems (by best solution pass rate):
+   1. Problem 0: 1.0000 (avg: 0.7727)
+   2. Problem 1: 0.0000 (avg: 0.0000)
+
+💀 Top 5 Hardest Problems (by best solution pass rate):
+   1. Problem 1: 0.0000 (avg: 0.0000)
+   2. Problem 0: 1.0000 (avg: 0.7727)
+================================================================================

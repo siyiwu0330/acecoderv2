@@ -1,0 +1,197 @@
+# AceCoderV2 - Interactive Development Environment
+# Complete self-contained environment for research and development
+
+FROM python:3.11
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    PYTHONPATH=/workspace \
+    DEBIAN_FRONTEND=noninteractive \
+    TERM=xterm-256color
+
+# Install comprehensive system dependencies
+RUN apt-get update && apt-get install -y \
+    # Essential tools
+    git curl wget unzip vim nano emacs \
+    # Build tools
+    build-essential gcc g++ make cmake \
+    # Development tools
+    gdb valgrind strace \
+    # Network tools
+    netcat-traditional telnet iputils-ping \
+    # System monitoring
+    htop iotop nethogs procps \
+    # Text processing
+    jq yq sed gawk grep \
+    # Archive tools
+    zip unzip tar gzip \
+    # File system tools
+    tree file \
+    # Database tools
+    sqlite3 \
+    # Graphics libraries (for matplotlib/plotting)
+    libfontconfig1-dev libfreetype6-dev \
+    # Other useful tools
+    tmux screen \
+    sudo \
+    # Clean up
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
+
+# Create user with sudo privileges
+RUN useradd -m -s /bin/bash -G sudo researcher && \
+    echo 'researcher ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+USER researcher
+WORKDIR /workspace
+
+# Install comprehensive Python environment
+RUN pip install --user --upgrade pip uv wheel setuptools
+
+# Copy project files
+COPY --chown=researcher:researcher . /workspace/
+
+# Install comprehensive Python packages for research (skipping uv.lock due to compatibility)
+RUN pip install --user \
+    # Git dependency (required for acecoder)
+    git+https://github.com/TIGER-AI-Lab/AceCoder.git@dev \
+    # Core data science stack
+    numpy pandas matplotlib seaborn plotly \
+    scikit-learn scipy statsmodels \
+    # Deep learning frameworks
+    torch torchvision torchaudio \
+    transformers tokenizers \
+    # Jupyter ecosystem
+    jupyter jupyterlab notebook ipython ipywidgets \
+    # Web frameworks
+    gradio streamlit dash flask fastapi uvicorn \
+    # Data processing
+    jsonlines pyyaml toml openpyxl \
+    # Database connectors
+    sqlalchemy psycopg2-binary pymongo \
+    # Development tools
+    pytest pytest-asyncio pytest-cov \
+    black isort flake8 mypy \
+    pre-commit \
+    # Utility packages
+    tqdm rich click fire typer \
+    requests httpx aiohttp \
+    # NLP packages
+    nltk spacy textblob \
+    # API clients
+    openai anthropic cohere \
+    # HuggingFace ecosystem
+    datasets evaluate accelerate \
+    # Evaluation tools
+    rouge-score bleu sacrebleu \
+    # Code evaluation
+    executing ast-scope \
+    # Version control
+    gitpython \
+    # Experiment tracking
+    wandb tensorboard \
+    # Configuration management
+    hydra-core omegaconf \
+    # Parallel processing
+    joblib multiprocess \
+    # Time handling
+    python-dateutil arrow pendulum
+
+# Skip project installation due to pyext compatibility issues with Python 3.11
+# The project files are available in /workspace for development
+
+# Set up evaluation environment (optional repositories)
+RUN mkdir -p eval && cd eval && \
+    (git clone -b reasoning https://github.com/jdf-prog/LiveCodeBench.git || echo "LiveCodeBench not available") && \
+    (git clone https://github.com/jdf-prog/AceReasonEvalKit.git || echo "AceReasonEvalKit not available")
+
+# Create convenient directories
+RUN mkdir -p \
+    /workspace/outputs \
+    /workspace/logs \
+    /workspace/data \
+    /workspace/models \
+    /workspace/experiments \
+    /workspace/notebooks \
+    ~/.cache/huggingface \
+    ~/.cache/transformers
+
+# Set up shell environment
+RUN echo '# AceCoderV2 Research Environment' >> ~/.bashrc && \
+    echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && \
+    echo 'export PYTHONPATH="/workspace:$PYTHONPATH"' >> ~/.bashrc && \
+    echo 'cd /workspace' >> ~/.bashrc && \
+    echo '' >> ~/.bashrc && \
+    echo '# Useful aliases' >> ~/.bashrc && \
+    echo 'alias ll="ls -la"' >> ~/.bashrc && \
+    echo 'alias la="ls -la"' >> ~/.bashrc && \
+    echo 'alias grep="grep --color=auto"' >> ~/.bashrc && \
+    echo 'alias tree="tree -C"' >> ~/.bashrc && \
+    echo 'alias python="python3"' >> ~/.bashrc && \
+    echo 'alias pip="pip3"' >> ~/.bashrc && \
+    echo '' >> ~/.bashrc && \
+    echo '# Project shortcuts' >> ~/.bashrc && \
+    echo 'alias gradio="python advsersial_prompt/integrated_gradio_app.py"' >> ~/.bashrc && \
+    echo 'alias pipeline="python advsersial_prompt/main.py"' >> ~/.bashrc && \
+    echo 'alias tests="python -m pytest"' >> ~/.bashrc && \
+    echo 'alias notebook="jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root"' >> ~/.bashrc && \
+    echo '' >> ~/.bashrc
+
+# Create convenient command scripts
+RUN echo '#!/bin/bash' > ~/.local/bin/start-gradio && \
+    echo 'cd /workspace && python advsersial_prompt/integrated_gradio_app.py "$@"' >> ~/.local/bin/start-gradio && \
+    chmod +x ~/.local/bin/start-gradio
+
+RUN echo '#!/bin/bash' > ~/.local/bin/start-pipeline && \
+    echo 'cd /workspace && python advsersial_prompt/main.py "$@"' >> ~/.local/bin/start-pipeline && \
+    chmod +x ~/.local/bin/start-pipeline
+
+RUN echo '#!/bin/bash' > ~/.local/bin/start-notebook && \
+    echo 'cd /workspace && jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root "$@"' >> ~/.local/bin/start-notebook && \
+    chmod +x ~/.local/bin/start-notebook
+
+RUN echo '#!/bin/bash' > ~/.local/bin/run-tests && \
+    echo 'cd /workspace && python -m pytest code_eval/ "$@"' >> ~/.local/bin/run-tests && \
+    chmod +x ~/.local/bin/run-tests
+
+RUN echo '#!/bin/bash' > ~/.local/bin/env-info && \
+    echo 'echo "=== AceCoderV2 Research Environment ==="' >> ~/.local/bin/env-info && \
+    echo 'echo "Python: $(python --version)"' >> ~/.local/bin/env-info && \
+    echo 'echo "Pip packages: $(pip list | wc -l) installed"' >> ~/.local/bin/env-info && \
+    echo 'echo "Working directory: $(pwd)"' >> ~/.local/bin/env-info && \
+    echo 'echo ""' >> ~/.local/bin/env-info && \
+    echo 'echo "Available commands:"' >> ~/.local/bin/env-info && \
+    echo 'echo "  start-gradio     - Launch web interface (port 7860)"' >> ~/.local/bin/env-info && \
+    echo 'echo "  start-pipeline   - Run adversarial generation pipeline"' >> ~/.local/bin/env-info && \
+    echo 'echo "  start-notebook   - Launch Jupyter Lab (port 8888)"' >> ~/.local/bin/env-info && \
+    echo 'echo "  run-tests        - Execute test suite"' >> ~/.local/bin/env-info && \
+    echo 'echo "  env-info         - Show this information"' >> ~/.local/bin/env-info && \
+    echo 'echo ""' >> ~/.local/bin/env-info && \
+    echo 'echo "Quick start:"' >> ~/.local/bin/env-info && \
+    echo 'echo "  1. Set OPENAI_API_KEY environment variable"' >> ~/.local/bin/env-info && \
+    echo 'echo "  2. Run: start-gradio"' >> ~/.local/bin/env-info && \
+    echo 'echo "  3. Open: http://localhost:7860"' >> ~/.local/bin/env-info && \
+    echo 'echo "================================="' >> ~/.local/bin/env-info && \
+    chmod +x ~/.local/bin/env-info
+
+# Create a startup script
+RUN echo '#!/bin/bash' > ~/startup.sh && \
+    echo 'clear' >> ~/startup.sh && \
+    echo 'env-info' >> ~/startup.sh && \
+    echo 'echo ""' >> ~/startup.sh && \
+    echo 'echo "Environment ready! Type '\''start-gradio'\'' to begin."' >> ~/startup.sh && \
+    echo 'exec bash' >> ~/startup.sh && \
+    chmod +x ~/startup.sh
+
+# Expose all necessary ports
+EXPOSE 7860 8888 8000 5000 8080
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:7860/ 2>/dev/null || exit 1
+
+# Default to interactive shell with environment info
+CMD ["/home/researcher/startup.sh"]

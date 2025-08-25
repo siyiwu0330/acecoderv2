@@ -1,0 +1,91 @@
+
+================================================================================
+EVALUATION STATISTICS
+================================================================================
+📊 Basic Info:
+   Total problems: 4
+   Total solutions: 101
+   Solutions per problem: 25
+
+🎯 Pass Rate Statistics:
+   Mean pass rate: 0.4634 (46.34%)
+   Median pass rate: 0.6500 (65.00%)
+   Std deviation: 0.3691
+   Solutions per problem (variable): 101/4 = 25.0 avg
+   Pass@k statistics skipped (non-uniform solution distribution)
+   Min pass rate: 0.0000 (0.00%)
+   Max pass rate: 1.0000 (100.00%)
+   Total solutions with pass rate 1.0: 12
+   Percentiles:
+     25th: 0.0000 (0.00%)
+     50th: 0.6500 (65.00%)
+     75th: 0.7500 (75.00%)
+     90th: 1.0000 (100.00%)
+     95th: 1.0000 (100.00%)
+     99th: 1.0000 (100.00%)
+
+✅ Solution Quality Distribution:
+   Perfect solutions (100% pass): 12 (11.88%)
+   Partial solutions (0% < pass < 100%): 54 (53.47%)
+   Failed solutions (0% pass): 35 (34.65%)
+
+📈 Pass Rate Distribution (bins):
+   [0.0, 0.1): 37 solutions (36.63%)
+   [0.1, 0.2): 0 solutions (0.00%)
+   [0.2, 0.3): 0 solutions (0.00%)
+   [0.3, 0.4): 1 solutions (0.99%)
+   [0.4, 0.5): 0 solutions (0.00%)
+   [0.5, 0.6): 0 solutions (0.00%)
+   [0.6, 0.7): 31 solutions (30.69%)
+   [0.7, 0.8): 20 solutions (19.80%)
+   [0.8, 0.9): 0 solutions (0.00%)
+   [0.9, 1.0): 12 solutions (11.88%)
+
+🧩 Problem-level Analysis:
+   Average pass rate per problem: 0.3854 ± 0.2493
+   Best solution per problem: 0.6000 ± 0.3691
+   Worst solution per problem: 0.0000 ± 0.0000
+
+🎚️  Problem Difficulty (based on best solution):
+   Easy (≥80% pass): 1 (25.00%)
+   Medium (40-80% pass): 2 (50.00%)
+   Hard (<40% pass): 1 (25.00%)
+
+🧪 Test Case Analysis:
+   Total test cases: 2020
+   Passed test cases: 936 (46.34%)
+   Failed test cases: 1084 (53.66%)
+   Overall test pass rate: 0.4634 (46.34%)
+   Avg test cases per solution: 20.00 ± 0.00
+   Min/Max test cases: 20/20
+
+   📋 Failure Reasons:
+     pass: 936 (46.34%)
+     unexecuted: 560 (27.72%)
+     fail: 524 (25.94%)
+
+   ❌ Error Analysis:
+     Test cases with errors: 26 (1.29%)
+     Top error messages:
+       20x (76.9%): maximum recursion depth exceeded
+       4x (15.4%): 'NoneType' object is not subscriptable
+       2x (7.7%): (34, 'Numerical result out of range')
+
+   ⏰ Time Limit Analysis:
+     Average time limit: 1.00s ± 0.00s
+     Min/Max time limit: 1.00s / 1.00s
+     Time limit distribution:
+       1s: 2020 tests (100.00%)
+
+🏆 Top 5 Easiest Problems (by best solution pass rate):
+   1. Problem 3: 1.0000 (avg: 0.6803)
+   2. Problem 1: 0.7500 (avg: 0.3633)
+   3. Problem 0: 0.6500 (avg: 0.4981)
+   4. Problem 2: 0.0000 (avg: 0.0000)
+
+💀 Top 5 Hardest Problems (by best solution pass rate):
+   1. Problem 2: 0.0000 (avg: 0.0000)
+   2. Problem 0: 0.6500 (avg: 0.4981)
+   3. Problem 1: 0.7500 (avg: 0.3633)
+   4. Problem 3: 1.0000 (avg: 0.6803)
+================================================================================
