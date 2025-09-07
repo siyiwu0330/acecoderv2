@@ -208,7 +208,3 @@ services:
 - Hugging Face for dataset hosting and tools
 - The open-source community for various dependencies
 
-
----
-
-**Made with ❤️ for the AI coding community**
