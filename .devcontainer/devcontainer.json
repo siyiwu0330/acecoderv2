@@ -1,64 +1,112 @@
 {
-    "name": "AceCoderV2 Development Environment",
-    "build": {
-        "dockerfile": "../Dockerfile",
-        "context": ".."
-    },
-    "features": {
-        "ghcr.io/devcontainers/features/git:1": {},
-        "ghcr.io/devcontainers/features/github-cli:1": {}
-    },
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "ms-python.python",
-                "ms-python.pylint",
-                "ms-python.black-formatter",
-                "ms-python.isort",
-                "ms-toolsai.jupyter",
-                "ms-vscode.vscode-json",
-                "redhat.vscode-yaml",
-                "ms-vscode.vscode-markdown",
-                "ms-vscode.live-server",
-                "bradlc.vscode-tailwindcss",
-                "esbenp.prettier-vscode"
-            ],
-            "settings": {
-                "python.defaultInterpreterPath": "/usr/local/bin/python",
-                "python.formatting.provider": "black",
-                "python.linting.enabled": true,
-                "python.linting.pylintEnabled": true,
-                "editor.formatOnSave": true,
-                "editor.codeActionsOnSave": {
-                    "source.organizeImports": true
-                },
-                "files.exclude": {
-                    "**/__pycache__": true,
-                    "**/*.pyc": true
-                }
-            }
-        }
-    },
-    "forwardPorts": [7860, 8000],
-    "portsAttributes": {
-        "7860": {
-            "label": "Gradio Interface",
-            "onAutoForward": "notify"
-        },
-        "8000": {
-            "label": "Alternative Port",
-            "onAutoForward": "silent"
-        }
-    },
-    "postCreateCommand": "pip install --upgrade pip && echo 'Dev container ready!'",
-    "remoteUser": "acecoder",
-    "workspaceFolder": "/home/acecoder/app",
-    "mounts": [
-        "source=${localWorkspaceFolder}/outputs,target=/home/acecoder/app/outputs,type=bind,consistency=cached",
-        "source=${localWorkspaceFolder}/logs,target=/home/acecoder/app/logs,type=bind,consistency=cached"
-    ],
-    "containerEnv": {
-        "PYTHONPATH": "/home/acecoder/app"
-    }
-}
+  "name": "AceCoderV2 Development Environment",
+  "image": "siyiwu0330/acecoderv2:2.1.0",
+  
+  // Features to add to the dev container
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
 
+  // Configure tool-specific properties
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.pylint",
+        "ms-python.black-formatter",
+        "ms-python.isort",
+        "ms-toolsai.jupyter",
+        "ms-toolsai.vscode-jupyter-cell-tags",
+        "ms-toolsai.vscode-jupyter-slideshow",
+        "ms-python.flake8",
+        "ms-python.mypy-type-checker",
+        "ms-vscode.vscode-json",
+        "redhat.vscode-yaml",
+        "ms-vscode.vscode-markdown",
+        "ms-vscode.remote-containers",
+        "ms-vscode-remote.remote-containers",
+        "github.copilot",
+        "github.copilot-chat",
+        "ms-python.debugpy",
+        "ms-python.vscode-pylance"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": true,
+        "python.linting.flake8Enabled": true,
+        "python.formatting.provider": "black",
+        "python.formatting.blackArgs": ["--line-length", "88"],
+        "python.sortImports.args": ["--profile", "black"],
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": true
+        },
+        "files.exclude": {
+          "**/__pycache__": true,
+          "**/*.pyc": true,
+          "**/outputs": false,
+          "**/logs": false
+        },
+        "python.analysis.autoImportCompletions": true,
+        "python.analysis.typeCheckingMode": "basic"
+      }
+    }
+  },
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally
+  "forwardPorts": [7860, 8000, 8888, 5000, 8080],
+  "portsAttributes": {
+    "7860": {
+      "label": "Gradio App",
+      "onAutoForward": "notify"
+    },
+    "8000": {
+      "label": "FastAPI",
+      "onAutoForward": "silent"
+    },
+    "8888": {
+      "label": "Jupyter",
+      "onAutoForward": "silent"
+    }
+  },
+
+  // Use 'postCreateCommand' to run commands after the container is created
+  "postCreateCommand": "echo '🚀 AceCoderV2 Development Environment Ready!' && echo '📋 Available commands:' && echo '  • python main.py --help' && echo '  • python convert_to_parquet.py --help' && echo '  • python integrated_gradio_app.py' && echo '💡 Start coding!'",
+
+  // Configure container environment
+  "containerEnv": {
+    "PYTHONPATH": "/home/acecoder/app",
+    "GRADIO_SERVER_PORT": "7860",
+    "GRADIO_SERVER_NAME": "0.0.0.0"
+  },
+
+  // Set the default user
+  "remoteUser": "acecoder",
+  "workspaceFolder": "/home/acecoder/app",
+
+  // Mount the workspace
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/home/acecoder/app,type=bind,consistency=cached"
+  ],
+
+  // Lifecycle scripts
+  "postStartCommand": "echo '🔧 Environment variables set' && echo 'PYTHONPATH: $PYTHONPATH'",
+  
+  // Override the default command
+  "overrideCommand": false,
+
+  // Keep container running
+  "shutdownAction": "none",
+
+  // Additional configuration
+  "remoteEnv": {
+    "DISPLAY": ":0"
+  },
+
+  // Docker compose for additional services if needed
+  "dockerComposeFile": "../docker-compose.dev.yml",
+  "service": "acecoderv2",
+  "workspaceFolder": "/home/acecoder/app"
+}

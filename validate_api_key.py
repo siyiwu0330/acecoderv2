@@ -4,7 +4,7 @@ Validate OpenAI API key and check remaining quota
 """
 import openai
 import sys
-from openai import OpenAI
+from openai_client import get_openai_client, validate_api_key as validate_api_key_centralized
 
 def check_api_key(api_key: str):
     """Check if API key is valid and has remaining quota"""
@@ -14,17 +14,13 @@ def check_api_key(api_key: str):
         return False
     
     try:
-        client = OpenAI(api_key=api_key)
-        
-        # Try a minimal request to test the key
-        response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[{"role": "user", "content": "Hi"}],
-            max_tokens=1
-        )
-        
-        print("✅ API key is valid and has quota")
-        return True
+        # Use centralized validation
+        if validate_api_key_centralized(api_key):
+            print("✅ API key is valid and has quota")
+            return True
+        else:
+            print("❌ API key validation failed")
+            return False
         
     except openai.RateLimitError as e:
         print(f"❌ API quota exceeded: {e}")

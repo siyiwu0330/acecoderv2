@@ -1,5 +1,6 @@
 # AceCoderV2 - Adversarial Code Generation System
 # Complete self-contained Docker image with all dependencies pre-installed
+# Version: 2.1.0 - Added skip_step4 functionality and parquet conversion
 
 FROM python:3.11-slim
 

@@ -1,207 +1,239 @@
-# AceCoderV2
+# AceCoderV2 - Adversarial Code Generation System
 
-**Adversarial Code Generation System** - A multi-round pipeline for generating and evaluating adversarial test cases and programs.
+[![Docker Hub](https://img.shields.io/badge/Docker%20Hub-siyiwu0330%2Facecoderv2-blue)](https://hub.docker.com/r/siyiwu0330/acecoderv2)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](LICENSE)
 
-## Quick Start with Docker (Recommended)
+A comprehensive adversarial code generation system that creates challenging programming problems and evaluates AI models' coding capabilities through multi-round adversarial testing.
 
-The easiest way to run AceCoderV2 is using Docker. This ensures consistent environment and dependencies.
+## 🚀 Quick Start
 
-### Prerequisites
-- Docker and Docker Compose installed
-- OpenAI API key
+### Option 1: VS Code Dev Container (Recommended)
 
-### 1. Clone and Setup
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/siyiwu0330/acecoderv2.git
+   cd acecoderv2
+   ```
+
+2. **Open in VS Code Dev Container**:
+   - Install the "Dev Containers" extension in VS Code
+   - Open the project folder in VS Code
+   - Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac)
+   - Select "Dev Containers: Reopen in Container"
+   - Wait for the container to build and start
+
+3. **Set your API key and run**:
+   ```bash
+   export OPENAI_API_KEY="your-api-key-here"
+   python main.py --output_dir outputs/test --rounds 2 --max_samples 10
+   ```
+
+### Option 2: Docker
+
 ```bash
-git clone https://huggingface.co/datasets/siyiwu0330/acecoderv2
+# Pull the image
+docker pull siyiwu0330/acecoderv2:latest
+
+# Run the container
+docker run -d -p 7860:7860 --name acecoderv2 siyiwu0330/acecoderv2:latest
+
+# Access the web interface
+# Browser: http://localhost:7860
+```
+
+### Option 3: Local Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/siyiwu0330/acecoderv2.git
 cd acecoderv2
 
-# Copy environment template and configure
-cp env.example .env
-# Edit .env and add your OpenAI API key
-```
-
-### 2. Run with Docker
-```bash
-# Build and start the application
-./docker-start.sh build
-./docker-start.sh start
-
-# Or use docker-compose directly
-docker-compose up -d
-```
-
-### 3. Access the Interface
-- **Gradio Interface**: http://localhost:7860
-- **View Logs**: `./docker-start.sh logs`
-
-### Docker Commands
-```bash
-./docker-start.sh build    # Build the Docker image
-./docker-start.sh start    # Start the application
-./docker-start.sh stop     # Stop the application
-./docker-start.sh logs     # View logs
-./docker-start.sh dev      # Start in development mode
-./docker-start.sh clean    # Clean up resources
-```
-
-## Development Setup
-
-### Option 1: Conda Environment (Recommended)
-```bash
-# Create conda environment
-conda env create -f environment-dev.yml
-conda activate acecoderv2-dev
-
-# Install project in development mode
-pip install -e .
-
-# Set up environment variables
-cp env.example .env
-# Edit .env and add your OpenAI API key
-
-# Run the interface
-python app.py
-```
-
-### Option 2: VS Code Dev Container
-1. Install VS Code with Dev Containers extension
-2. Open project in VS Code
-3. Click "Reopen in Container" when prompted
-4. Everything will be set up automatically!
-
-### Option 3: UV/Local Development
-```bash
-# Install dependencies with uv
-uv sync
-uv pip install -e .
-
-# Or use pip with requirements.txt
+# Install dependencies
 pip install -r requirements.txt
-pip install git+https://github.com/TIGER-AI-Lab/AceCoder.git@dev
-pip install -e .
 
-# Run the interface
-python app.py
+# Set API key
+export OPENAI_API_KEY="your-api-key-here"
+
+# Run the pipeline
+python main.py --output_dir outputs/test --rounds 1 --max_samples 10
 ```
 
-For detailed conda setup instructions, see [CONDA_SETUP.md](CONDA_SETUP.md).
+## 🎯 Features
 
-## Features
+### Core Pipeline
+- **Step 1: Prompting** - Transform simple problems into complex LeetCode-style problems
+- **Step 1.1: Parsing** - Parse GPT responses and extract structured data
+- **Step 2.1: Generation** - Generate multiple program solutions
+- **Step 2.2: Evaluation** - Evaluate programs against test cases
+- **Step 3: Filtering** - Filter and optimize test cases and programs
+- **Step 4: Cross-Round Evaluation** - Comprehensive evaluation across all rounds
 
-- **Multi-round Adversarial Generation**: Generate programs and test cases iteratively
-- **Multiple Model Support**: GPT-4, GPT-3.5, and other OpenAI models
-- **Real-time Visualization**: Interactive matrices showing program-test relationships
-- **Configurable Parameters**: Control samples, tokens, rounds, and more
-- **Pipeline Monitoring**: Real-time logs and progress tracking
-- **Containerized**: Easy deployment with Docker
+### Advanced Features
+- **Skip Step 4** - Skip computationally expensive cross-round evaluation for large datasets
+- **Parquet Conversion** - Convert results to efficient Parquet format
+- **Hugging Face Integration** - Upload and download datasets from Hugging Face
+- **Unified OpenAI Client** - Centralized API client management
+- **Web Interface** - Interactive Gradio-based visualization
 
-## Usage
+### Performance Optimizations
+- **Parallel Processing** - Multi-threaded code evaluation
+- **Memory Efficient** - Optimized for large datasets
+- **Retry Logic** - Robust error handling with exponential backoff
+- **Caching** - Intelligent caching of API responses
+
+## 📊 Usage Examples
+
+### Basic Pipeline
+```bash
+# Run 2 rounds with 10 samples
+python main.py --output_dir outputs/test --rounds 2 --max_samples 10
+
+# Skip step 4 for large datasets
+python main.py --output_dir outputs/large --rounds 3 --max_samples 100 --skip_step4
+
+# Use VLLM for generation
+python main.py --output_dir outputs/vllm --use_vllm --rounds 1
+```
+
+### Data Processing
+```bash
+# Convert to Parquet format
+python convert_to_parquet.py --jsonl_path data.jsonl --local_dir output
+
+# Convert Hugging Face dataset
+python hf_dataset_converter.py --dataset_name siyiwu0330/acecoderv2 --output converted.jsonl
+```
 
 ### Web Interface
-1. Start the application (Docker or local)
-2. Open http://localhost:7860
-3. Configure parameters:
-   - **Rounds**: Number of adversarial rounds (1-50)
-   - **Model**: OpenAI model to use
-   - **Max Samples**: Number of questions to process (10-1000)
-   - **Max Tokens**: Token limit per API call
-4. Click "Start Pipeline" and monitor progress
-5. View results in the Visualization tab
-
-### Command Line
 ```bash
-# Run pipeline directly
-python advsersial_prompt/main.py \
-  --rounds 3 \
-  --model_name gpt-4.1-mini \
-  --max_samples 50 \
-  --output_dir outputs/my_experiment
+# Start interactive interface
+python integrated_gradio_app.py
 
-# Run specific steps
-python advsersial_prompt/step1_prompting.py --help
-python advsersial_prompt/step2.1_openai_gen.py --help
+# Start simple interface
+python app.py
 ```
 
-## Project Structure
+## 🏗️ Architecture
 
 ```
 acecoderv2/
-├── advsersial_prompt/          # Main pipeline code
-│   ├── integrated_gradio_app.py # Web interface
-│   ├── main.py                 # Pipeline orchestrator
-│   ├── step1_prompting.py      # Problem generation
-│   ├── step2.1_openai_gen.py   # Code generation
-│   └── step2.2_eval.py         # Evaluation
-├── code_eval/                  # Evaluation utilities
-├── synthesizer/                # Data synthesis tools
-├── Dockerfile                  # Container definition
-├── docker-compose.yml          # Multi-container setup
-└── outputs/                    # Generated results
+├── .devcontainer/          # VS Code dev container configuration
+├── main.py                # Main pipeline (command-line)
+├── main_full.py           # Full pipeline with all features
+├── integrated_gradio_app.py  # Web interface
+├── app.py                 # Simple web interface
+├── openai_client.py       # Centralized OpenAI client
+├── openai_utils.py        # Legacy OpenAI utilities
+├── convert_to_parquet.py  # Parquet conversion tool
+├── hf_dataset_converter.py # Hugging Face dataset converter
+├── step1_prompting.py     # Problem transformation
+├── step1.1_parsing.py     # Response parsing
+├── step2.1_openai_gen.py  # Program generation
+├── step2.1_vllm_gen.py    # VLLM generation
+├── step2.2_eval.py        # Code evaluation
+├── step_3_filter_tests.py # Test filtering
+├── step4_cross_round_eval.py # Cross-round evaluation
+└── ...                    # Other utilities
 ```
 
-## Configuration
+## 🔧 Configuration
 
 ### Environment Variables
 ```bash
-# Required
-OPENAI_API_KEY=your_api_key_here
-
-# Optional
-DEFAULT_MODEL=gpt-4.1-mini
-DEFAULT_MAX_TOKENS=4000
-DEFAULT_MAX_SAMPLES=100
-GRADIO_PORT=7860
+export OPENAI_API_KEY="your-api-key-here"
+export OPENAI_BASE_URL="https://api.openai.com/v1"  # Optional
+export GRADIO_SERVER_PORT="7860"  # Optional
+export GRADIO_SERVER_NAME="0.0.0.0"  # Optional
 ```
 
-### Pipeline Parameters
-- **Rounds**: Number of adversarial iterations
-- **Max Samples**: Questions to process per round
-- **Max Tokens**: API call token limit
-- **Model**: OpenAI model selection
-- **Seed**: Random seed for reproducibility
-
-## Evaluation
-
-### Setup Evaluation Environment
+### Command Line Options
 ```bash
-mkdir -p eval
-cd eval
-git clone -b reasoning https://github.com/jdf-prog/LiveCodeBench
-git clone https://github.com/jdf-prog/AceReasonEvalKit.git
+python main.py --help
 ```
 
-### Legacy Synthesizer
-```bash
-cd synthesizer
-bash scripts/run.sh
+Key options:
+- `--output_dir`: Output directory for results
+- `--rounds`: Number of rounds to run
+- `--max_samples`: Maximum number of samples
+- `--skip_step4`: Skip cross-round evaluation
+- `--use_vllm`: Use VLLM for generation
+- `--verbose`: Enable verbose logging
 
-# For previous AceCoder dataset analysis
-python ../scripts/format_old_acecoderv2_data
-bash scripts/run_old_acecoderv2.sh
+## 📈 Performance
+
+### Skip Step 4 Benefits
+- **Solves hanging issues** with large problem sets (>50 problems)
+- **Faster completion** by skipping computationally expensive evaluation
+- **Memory efficient** with reduced resource usage
+- **Stable execution** without timeouts
+
+### Parquet Format Advantages
+- **Storage efficiency** - more compact than JSON
+- **Faster loading** - columnar storage for better performance
+- **Memory friendly** - supports chunked reading
+- **Tool compatibility** - works with pandas, Dask, etc.
+
+## 🐳 Docker Support
+
+### Available Images
+- `siyiwu0330/acecoderv2:latest` - Latest version
+- `siyiwu0330/acecoderv2:2.1.0` - Specific version
+
+### Docker Compose
+```yaml
+version: '3.8'
+services:
+  acecoderv2:
+    image: siyiwu0330/acecoderv2:latest
+    ports:
+      - "7860:7860"
+    environment:
+      - OPENAI_API_KEY=your-api-key-here
+    volumes:
+      - ./outputs:/home/acecoder/app/outputs
 ```
 
-## Contributing
+## 📚 Documentation
+
+- [Skip Step 4 Usage](SKIP_STEP4_USAGE.md) - Guide for skipping cross-round evaluation
+- [Parquet Conversion](PARQUET_CONVERSION_USAGE.md) - Data format conversion guide
+- [Dev Container Setup](.devcontainer/README.md) - VS Code development environment
+- [Changelog](CHANGELOG.md) - Version history and updates
+
+## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Use the Dev Container for consistent environment
-4. Make your changes
-5. Test with Docker
-6. Submit a pull request
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## License
+## 📄 License
 
-See LICENSE file for details.
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
-## Troubleshooting
+## 🙏 Acknowledgments
 
-### Common Issues
-- **Port conflicts**: Change ports in `.env` file
-- **API key errors**: Verify your OpenAI API key in `.env`
-- **Memory issues**: Reduce `max_samples` parameter
-- **Docker issues**: Run `./docker-start.sh clean` and rebuild
+- OpenAI for providing the GPT models
+- Hugging Face for dataset hosting and tools
+- The open-source community for various dependencies
 
-### Getting Help
-- Check logs: `./docker-start.sh logs`
-- View container status: `docker-compose ps`
-- Reset environment: `./docker-start.sh clean && ./docker-start.sh build`
+## 📞 Support
+
+- **GitHub Issues**: [Report bugs and feature requests](https://github.com/siyiwu0330/acecoderv2/issues)
+- **Docker Hub**: [Container images](https://hub.docker.com/r/siyiwu0330/acecoderv2)
+- **Documentation**: Check individual script help with `--help`
+
+## 🎉 Version 2.1.0 Highlights
+
+- ✅ Skip Step 4 functionality for large datasets
+- ✅ Parquet conversion tools
+- ✅ Unified OpenAI client management
+- ✅ VS Code dev container support
+- ✅ Enhanced Docker integration
+- ✅ Comprehensive documentation
+
+---
+
+**Made with ❤️ for the AI coding community**

@@ -1,0 +1,101 @@
+
+================================================================================
+EVALUATION STATISTICS
+================================================================================
+📊 Basic Info:
+   Total problems: 6
+   Total solutions: 34
+   Solutions per problem: 5
+
+🎯 Pass Rate Statistics:
+   Mean pass rate: 0.3260 (32.60%)
+   Median pass rate: 0.2500 (25.00%)
+   Std deviation: 0.3295
+   Min pass rate: 0.0000 (0.00%)
+   Max pass rate: 0.8846 (88.46%)
+
+📈 Pass@k Statistics:
+   Pass@1: 0.0000 (0.00%)
+   Pass@2: 0.0000 (0.00%)
+   Pass@4: 0.0000 (0.00%)
+   Pass@5: 0.0000 (0.00%)
+   Total solutions with pass rate 1.0: 0
+   Percentiles:
+     25th: 0.0000 (0.00%)
+     50th: 0.2500 (25.00%)
+     75th: 0.6667 (66.67%)
+     90th: 0.8846 (88.46%)
+     95th: 0.8846 (88.46%)
+     99th: 0.8846 (88.46%)
+
+✅ Solution Quality Distribution:
+   Perfect solutions (100% pass): 0 (0.00%)
+   Partial solutions (0% < pass < 100%): 22 (64.71%)
+   Failed solutions (0% pass): 12 (35.29%)
+
+📈 Pass Rate Distribution (bins):
+   [0.0, 0.1): 12 solutions (35.29%)
+   [0.1, 0.2): 3 solutions (8.82%)
+   [0.2, 0.3): 4 solutions (11.76%)
+   [0.3, 0.4): 3 solutions (8.82%)
+   [0.4, 0.5): 1 solutions (2.94%)
+   [0.5, 0.6): 0 solutions (0.00%)
+   [0.6, 0.7): 6 solutions (17.65%)
+   [0.7, 0.8): 0 solutions (0.00%)
+   [0.8, 0.9): 5 solutions (14.71%)
+   [0.9, 1.0): 0 solutions (0.00%)
+
+🧩 Problem-level Analysis:
+   Average pass rate per problem: 0.3251 ± 0.2619
+   Best solution per problem: 0.4623 ± 0.3121
+   Worst solution per problem: 0.0667 ± 0.0986
+
+🎚️  Problem Difficulty (based on best solution):
+   Easy (≥80% pass): 1 (16.67%)
+   Medium (40-80% pass): 3 (50.00%)
+   Hard (<40% pass): 2 (33.33%)
+
+🧪 Test Case Analysis:
+   Total test cases: 1112
+   Passed test cases: 385 (34.62%)
+   Failed test cases: 727 (65.38%)
+   Overall test pass rate: 0.3462 (34.62%)
+   Avg test cases per solution: 32.71 ± 16.24
+   Min/Max test cases: 19/57
+
+   📋 Failure Reasons:
+     fail: 627 (56.38%)
+     pass: 385 (34.62%)
+     unexecuted: 57 (5.13%)
+     missing_dependency: 33 (2.97%)
+     syntax_error: 10 (0.90%)
+
+   ❌ Error Analysis:
+     Test cases with errors: 401 (36.06%)
+     Top error messages:
+       150x (37.4%): name 'intent_labels' is not defined
+       95x (23.7%): 'AVLTree' object has no attribute 'insert'
+       33x (8.2%): No module named 'sklearn'
+       20x (5.0%): name 'o' is not defined
+       20x (5.0%): name 'out' is not defined
+
+   ⏰ Time Limit Analysis:
+     Average time limit: 1.00s ± 0.00s
+     Min/Max time limit: 1.00s / 1.00s
+     Time limit distribution:
+       1s: 1112 tests (100.00%)
+
+🏆 Top 5 Easiest Problems (by best solution pass rate):
+   1. Problem 5: 0.8846 (avg: 0.7372)
+   2. Problem 0: 0.6667 (avg: 0.5556)
+   3. Problem 3: 0.6500 (avg: 0.3000)
+   4. Problem 2: 0.4500 (avg: 0.3200)
+   5. Problem 1: 0.1228 (avg: 0.0380)
+
+💀 Top 5 Hardest Problems (by best solution pass rate):
+   1. Problem 4: 0.0000 (avg: 0.0000)
+   2. Problem 1: 0.1228 (avg: 0.0380)
+   3. Problem 2: 0.4500 (avg: 0.3200)
+   4. Problem 3: 0.6500 (avg: 0.3000)
+   5. Problem 0: 0.6667 (avg: 0.5556)
+================================================================================

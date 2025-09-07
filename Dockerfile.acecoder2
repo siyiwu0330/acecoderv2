@@ -1,0 +1,107 @@
+# AceCoderV2 - Optimized Docker Image for Adversarial Code Generation
+# Based on actual working acecoder2 conda environment
+
+FROM continuumio/miniconda3:24.1.2-0
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    CONDA_ENV_NAME=acecoder2 \
+    DEBIAN_FRONTEND=noninteractive \
+    GRADIO_SERVER_PORT=7860
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    wget \
+    build-essential \
+    gcc \
+    g++ \
+    make \
+    cmake \
+    pkg-config \
+    vim \
+    nano \
+    htop \
+    procps \
+    tree \
+    jq \
+    netcat-traditional \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
+
+# Create conda environment from environment.yml
+COPY environment.yml /tmp/environment.yml
+
+# Update conda environment name in the file and create environment
+RUN sed -i 's/name: acecoder2/name: acecoder2/' /tmp/environment.yml && \
+    conda env create -f /tmp/environment.yml && \
+    conda clean -afy
+
+# Make conda activate command available
+RUN echo "source activate acecoder2" >> ~/.bashrc
+ENV PATH /opt/conda/envs/acecoder2/bin:$PATH
+ENV CONDA_DEFAULT_ENV acecoder2
+
+# Install AceCoder package in the conda environment
+RUN /opt/conda/envs/acecoder2/bin/pip install git+https://github.com/TIGER-AI-Lab/AceCoder.git@dev
+
+# Create non-root user
+RUN useradd --create-home --shell /bin/bash acecoder && \
+    chown -R acecoder:acecoder /opt/conda/envs/acecoder2
+
+# Switch to non-root user
+USER acecoder
+WORKDIR /home/acecoder/app
+
+# Copy application code
+COPY --chown=acecoder:acecoder . .
+
+# Create necessary directories
+RUN mkdir -p outputs logs eval data models cache \
+    ~/.cache/huggingface ~/.cache/transformers
+
+# Set up shell environment
+RUN echo 'export PATH="/opt/conda/envs/acecoder2/bin:$PATH"' >> ~/.bashrc && \
+    echo 'export CONDA_DEFAULT_ENV=acecoder2' >> ~/.bashrc && \
+    echo 'export PYTHONPATH="/home/acecoder/app:$PYTHONPATH"' >> ~/.bashrc && \
+    echo 'alias ll="ls -la"' >> ~/.bashrc && \
+    echo 'alias la="ls -la"' >> ~/.bashrc && \
+    echo 'cd /home/acecoder/app' >> ~/.bashrc
+
+# Create utility scripts
+RUN mkdir -p ~/.local/bin && \
+    echo '#!/bin/bash\nexport PATH="/opt/conda/envs/acecoder2/bin:$PATH"\npython app.py "$@"' > ~/.local/bin/run-app && \
+    echo '#!/bin/bash\nexport PATH="/opt/conda/envs/acecoder2/bin:$PATH"\npython main.py "$@"' > ~/.local/bin/run-pipeline && \
+    echo '#!/bin/bash\nexport PATH="/opt/conda/envs/acecoder2/bin:$PATH"\npython integrated_gradio_app.py "$@"' > ~/.local/bin/run-gradio && \
+    echo '#!/bin/bash\nexport PATH="/opt/conda/envs/acecoder2/bin:$PATH"\npython -m pytest code_eval/ "$@"' > ~/.local/bin/run-tests && \
+    chmod +x ~/.local/bin/run-*
+
+# Add local bin to PATH
+ENV PATH="/home/acecoder/.local/bin:$PATH"
+
+# Expose ports
+EXPOSE 7860 7861 8000 8888
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD curl -f http://localhost:${GRADIO_SERVER_PORT}/ || exit 1
+
+# Default startup command
+CMD echo "🚀 Starting AceCoderV2 Environment..." && \
+    echo "============================================================" && \
+    echo "✅ Conda environment: acecoder2" && \
+    echo "🐍 Python version: $(python --version)" && \
+    echo "🔥 PyTorch version: $(python -c 'import torch; print(torch.__version__)')" && \
+    echo "🎯 AceCoder: $(python -c 'import acecoder; print(\"Loaded successfully\")')" && \
+    echo "============================================================" && \
+    echo "📱 Web interface starting on port ${GRADIO_SERVER_PORT}" && \
+    echo "🌐 Access at: http://localhost:${GRADIO_SERVER_PORT}" && \
+    echo "🔧 Available commands:" && \
+    echo "   • run-app       - Start optimized web interface" && \
+    echo "   • run-pipeline  - Execute adversarial pipeline" && \
+    echo "   • run-gradio    - Start original Gradio interface" && \
+    echo "   • run-tests     - Run test suite" && \
+    echo "============================================================" && \
+    exec /opt/conda/envs/acecoder2/bin/python app.py

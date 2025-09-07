@@ -54,10 +54,13 @@ def main():
         print("🎨 Creating integrated interface...")
         app = create_integrated_interface()
         
+        # 支持通过环境变量或命令行参数指定端口
+        port = int(os.environ.get("GRADIO_SERVER_PORT", 7860))
+        
         print("🌐 Launching web application...")
         print("📱 Access the application at:")
-        print("   Local: http://localhost:7860")
-        print("   Remote: http://YOUR_SERVER_IP:7860")
+        print(f"   Local: http://localhost:{port}")
+        print(f"   Remote: http://YOUR_SERVER_IP:{port}")
         print("🔗 A shareable link will also be generated")
         print("=" * 60)
         print("💡 Features available:")
@@ -69,7 +72,7 @@ def main():
         
         app.launch(
             server_name="0.0.0.0",
-            server_port=7860,
+            server_port=port,
             share=True,
             show_error=True,
             debug=False

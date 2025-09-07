@@ -10,12 +10,66 @@ from collections import Counter
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from code_eval import eval_codes
-from utils import print_statistics
+from utils import print_statistics, get_python_code_from_string
 from typing import List, Optional
 
 FILE_NAME = Path(__file__).stem
 LAST_STEP_NAME = "step2.1_gen"  # Also handle merged files
 MERGED_STEP_NAME = "step2.1_merged"
+
+
+
+
+def advanced_parse_code(solution_str: str, test_cases: List[str]) -> str:
+    """
+    Injects placeholder implementations for undefined classes and functions found in test cases.
+    This version also detects method calls on placeholder classes.
+    """
+    if not isinstance(solution_str, str):
+        solution_str = str(solution_str)
+
+    all_tests_str = "\n".join(str(t) for t in test_cases)
+    
+    # Find class instantiations like `GridMaster(...)`
+    class_instantiations = set(re.findall(r'\b([A-Z]\w*)\s*\(', all_tests_str))
+    
+    # Find function calls like `my_func(...)`
+    function_calls = set(re.findall(r'\b([a-z_]\w*)\s*\(', all_tests_str))
+
+    solution_words = set(re.findall(r'\b\w+\b', solution_str))
+    common_keywords = {'assert', 'Solution', 'self', 'range', 'len', 'list', 'dict', 'set', 'tuple', 'print', 'int', 'str', 'float', 'bool', 'True', 'False', 'None', 'sorted', 'min', 'max', 'abs', 'sum'}
+    
+    placeholders = []
+    
+    # Handle class placeholders
+    for class_name in class_instantiations:
+        if class_name not in solution_words and class_name not in common_keywords:
+            # Find all method calls on this class, e.g., master.canMove(...)
+            methods = set(re.findall(r'\w+\.' + class_name + r'\(\w*\)\.(\w+)\(', all_tests_str))
+            # A more general regex for obj.method() where obj might be an instance of our class
+            methods.update(set(re.findall(r'\w+\.(\w+)\(', all_tests_str)))
+
+
+            method_defs = "    def __init__(self, *args, **kwargs): pass\n"
+            for method in methods:
+                if method not in solution_words:
+                     method_defs += f"    def {method}(self, *args, **kwargs): return None\n"
+
+            placeholders.append(f"class {class_name}:\n{method_defs}")
+
+    # Handle function placeholders
+    for func_name in function_calls:
+        if func_name not in solution_words and func_name not in common_keywords:
+            placeholders.append(f"def {func_name}(*args, **kwargs): return None\n")
+
+    # Remove duplicates
+    unique_placeholders = list(dict.fromkeys(placeholders))
+    injected_code = "\n".join(unique_placeholders) + "\n\n" + solution_str
+    if unique_placeholders:
+        print(f"--- Injected Code for QID ---")
+        print("\n".join(unique_placeholders))
+        print("----------------------------")
+    return injected_code
 
 
 def main(
@@ -24,63 +78,100 @@ def main(
     overwrite: bool = False,
     num_proc: int = 64,
     max_samples: Optional[int] = None,
-    current_round: int = 0
+    current_round: int = 0,
+    debug: bool = False,
 ):
-    
-    output_dir = Path(output_dir) if output_dir else Path(file_path).parent
+    file_path = Path(file_path)
+    if output_dir is None:
+        output_dir = file_path.parent
+    else:
+        output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-    # Handle both regular generation files and merged files
-    file_stem = Path(file_path).stem
-    if MERGED_STEP_NAME in file_stem:
-        new_file_name = file_stem.replace(MERGED_STEP_NAME, FILE_NAME)
+    
+    # Dynamic output naming based on input
+    input_name = file_path.stem
+    if LAST_STEP_NAME in input_name:
+        output_name = input_name.replace(LAST_STEP_NAME, FILE_NAME)
+    elif MERGED_STEP_NAME in input_name:
+        output_name = input_name.replace(MERGED_STEP_NAME, FILE_NAME)
     else:
-        new_file_name = file_stem.replace(LAST_STEP_NAME, FILE_NAME)
-    output_file = output_dir / f"{new_file_name}.jsonl"
+        output_name = FILE_NAME + "_" + input_name
     
-    stats_output_file = output_dir / f"{new_file_name}_stats.txt"
+    output_file = output_dir / f"{output_name}.jsonl"
+    stats_file = output_dir / f"{output_name}_stats.txt"
     
-    if output_file.exists() and output_file.stat().st_size != 0 and not overwrite:
-        print(f"Output file {output_file} already exists. Use --overwrite to overwrite.")
-        with open(output_file, 'r') as f:
-            data = [json.loads(line) for line in f.readlines()]
-        print_statistics(data, output_file=stats_output_file)
+    if output_file.exists() and not overwrite:
+        print(f"⚠️ Output file {output_file} already exists. Use --overwrite true to overwrite.")
         return
-
-    print(f"🔄 Loading data from: {file_path}")
     
-    # Load input data
-    if file_path.endswith('.jsonl'):
-        with open(file_path, 'r') as f:
-            data = [json.loads(line) for line in f.readlines()]
-    elif file_path.endswith('.json'):
-        with open(file_path, 'r') as f:
-            data = json.load(f)
-    else:
-        raise ValueError("Unsupported file format. Please provide a .jsonl or .json file.")
+    with open(file_path, 'r') as f:
+        items = [json.loads(line) for line in f.readlines()]
     
-    if max_samples is not None and max_samples > 0 and len(data) > max_samples:
-        random.seed(42)  # For reproducibility
-        data = random.sample(data, max_samples)
-
-    print(f"📥 Loaded {len(data)} problems")
-
-    print(f'----------Preparing evaluation data----------')
+    if max_samples is not None:
+        items = items[:max_samples]
     
+    # Filter items that need evaluation
     items_to_process = []
-    for item in data:
-        # Get all programs that need to be evaluated
+    for item in items:
         programs_to_eval = []
+        all_tests = []
         
-        # Always include the original program
-        original_program = item.get('program')
-        if original_program:
-            programs_to_eval.append(original_program)
+        # Extract original program(s) - check both 'program' and 'all_programs' fields
+        programs = item.get('program', [])
+        if isinstance(programs, str):
+            programs = [programs]
+        elif programs is None:
+            programs = []
         
-        # Include any newly generated programs from step1.1 parsing
-        if 'synthesis_result' in item:
-            generated_programs_step1 = item['synthesis_result'].get('generated_programs', [])
-            if generated_programs_step1:
-                programs_to_eval.extend(generated_programs_step1)
+        # Also check 'all_programs' field for accumulated programs from previous rounds
+        all_programs = item.get('all_programs', [])
+        if isinstance(all_programs, list):
+            programs.extend(all_programs)
+        
+        # Remove duplicates while preserving order
+        seen_programs = set()
+        unique_programs = []
+        for prog in programs:
+            if prog and isinstance(prog, str) and prog.strip():
+                prog_stripped = prog.strip()
+                if prog_stripped not in seen_programs:
+                    seen_programs.add(prog_stripped)
+                    unique_programs.append(prog_stripped)
+                    programs_to_eval.append(prog_stripped)
+        
+        # Extract original tests
+        if 'synthesis_result' in item and 'tests' in item['synthesis_result']:
+            original_tests = item['synthesis_result']['tests']
+            if isinstance(original_tests, list):
+                all_tests.extend(original_tests)
+        
+        # Extract new tests from step1.1 (if any)
+        new_tests_step1_1 = []
+        if 'gen_result' in item and 'outputs' in item['gen_result']:
+            step1_1_outputs = item['gen_result']['outputs']
+            for output in step1_1_outputs:
+                if isinstance(output, dict) and 'message' in output and 'content' in output['message']:
+                    test_content = output['message']['content']
+                    # Extract test cases using improved regex
+                    assert_statements = re.findall(r'assert\s+[^\n]+', test_content)
+                    new_tests_step1_1.extend(assert_statements)
+                elif isinstance(output, str):
+                    # Handle string outputs directly
+                    new_tests_step1_1.append(output)
+        
+        # Extract new tests from step2.1 generation (if any)
+        new_tests_step2_1 = []
+        if 'gen_result' in item and 'outputs' in item['gen_result']:
+            step2_1_outputs = item['gen_result']['outputs']
+            for output in step2_1_outputs:
+                if isinstance(output, dict) and 'message' in output and 'content' in output['message']:
+                    test_content = output['message']['content']
+                    # Extract test cases using improved regex
+                    assert_statements = re.findall(r'assert\s+[^\n]+', test_content)
+                    new_tests_step2_1.extend(assert_statements)
+                elif isinstance(output, str):
+                    # Handle string outputs directly
+                    new_tests_step2_1.append(output)
         
         # Include any newly generated programs from step2.1 generation
         generated_programs = item.get('gen_result', {}).get('generated_programs', [])
@@ -89,38 +180,19 @@ def main(
                 # Extract the actual code from the response
                 if isinstance(gen_prog, dict) and 'message' in gen_prog and 'content' in gen_prog['message']:
                     program_content = gen_prog['message']['content']
-                    # Extract Python code from markdown blocks if present
-                    if '```python' in program_content:
-                        code_blocks = program_content.split('```python')
-                        for block in code_blocks[1:]:  # Skip first split (before first code block)
-                            code = block.split('```')[0].strip()
-                            if code:
-                                programs_to_eval.append(code)
-                    elif '```' in program_content:
-                        code_blocks = program_content.split('```')
-                        for i in range(1, len(code_blocks), 2):  # Take odd-indexed blocks (code)
-                            code = code_blocks[i].strip()
-                            if code:
-                                programs_to_eval.append(code)
+                    # Use improved code extraction
+                    extracted_code = get_python_code_from_string(program_content)
+                    if extracted_code and extracted_code.strip():
+                        programs_to_eval.append(extracted_code)
+                        print(f"✅ Successfully extracted {len(extracted_code)} chars of code")
                     else:
-                        # No code blocks, treat the entire content as code
-                        programs_to_eval.append(program_content.strip())
+                        print(f"❌ Failed to extract code from: {program_content[:100]}...")
                 elif isinstance(gen_prog, str):
-                    programs_to_eval.append(gen_prog)
+                    # Handle string programs directly
+                    extracted_code = get_python_code_from_string(gen_prog)
+                    if extracted_code and extracted_code.strip():
+                        programs_to_eval.append(extracted_code)
         
-        if not programs_to_eval:
-            print(f"Warning: Skipping item because no programs found. Item: {item.get('gen_result', {}).get('qid')}")
-            continue
-
-        # The tests are the combination of original tests and newly generated ones.
-        original_tests = item.get('synthesis_result', {}).get('tests', [])
-        new_tests_step2_1 = item.get('gen_result', {}).get('outputs', [])
-        new_tests_step1_1 = item.get('synthesis_result', {}).get('generated_test_cases', [])
-        
-        if not isinstance(original_tests, list): original_tests = []
-        if not isinstance(new_tests_step2_1, list): new_tests_step2_1 = []
-        if not isinstance(new_tests_step1_1, list): new_tests_step1_1 = []
-
         # Sometimes the generated tests are strings of lists, e.g. "['assert...']". We need to parse them.
         parsed_new_tests = []
         for t in new_tests_step2_1 + new_tests_step1_1:
@@ -139,80 +211,27 @@ def main(
                 else:
                     parsed_new_tests.append(t)
             elif isinstance(t, list):
-                 parsed_new_tests.extend(t)
-
-
-        all_tests = original_tests + parsed_new_tests
-
-        if not all_tests:
-            print(f"Warning: Skipping item with programs but no tests. Item: {item.get('gen_result', {}).get('qid')}")
-            continue
+                parsed_new_tests.extend(t)
+            else:
+                parsed_new_tests.append(str(t))
         
-        # Store the programs and combined tests for processing
-        item['programs_to_eval'] = programs_to_eval
-        item['all_tests'] = all_tests
-        items_to_process.append(item)
-
+        all_tests.extend(parsed_new_tests)
+        
+        # Only include items that have both programs and tests
+        if programs_to_eval and all_tests:
+            item['programs_to_eval'] = programs_to_eval
+            item['all_tests'] = all_tests
+            items_to_process.append(item)
+    
     if not items_to_process:
-        print("Error: No valid program/test combinations found to evaluate.")
-        with open(stats_output_file, 'w') as f:
+        print("⚠️ No valid items to evaluate.")
+        with open(stats_file, 'w') as f:
             f.write("No valid items to evaluate.\n")
         with open(output_file, 'w') as f:
             f.write("")
         return
 
     print(f"🔧 Processing {len(items_to_process)} solutions...")
-
-    def advanced_parse_code(solution_str: str, test_cases: List[str]) -> str:
-        """
-        Injects placeholder implementations for undefined classes and functions found in test cases.
-        This version also detects method calls on placeholder classes.
-        """
-        if not isinstance(solution_str, str):
-            solution_str = str(solution_str)
-
-        all_tests_str = "\n".join(str(t) for t in test_cases)
-        
-        # Find class instantiations like `GridMaster(...)`
-        class_instantiations = set(re.findall(r'\b([A-Z]\w*)\s*\(', all_tests_str))
-        
-        # Find function calls like `my_func(...)`
-        function_calls = set(re.findall(r'\b([a-z_]\w*)\s*\(', all_tests_str))
-
-        solution_words = set(re.findall(r'\b\w+\b', solution_str))
-        common_keywords = {'assert', 'Solution', 'self', 'range', 'len', 'list', 'dict', 'set', 'tuple', 'print', 'int', 'str', 'float', 'bool', 'True', 'False', 'None', 'sorted', 'min', 'max', 'abs', 'sum'}
-        
-        placeholders = []
-        
-        # Handle class placeholders
-        for class_name in class_instantiations:
-            if class_name not in solution_words and class_name not in common_keywords:
-                # Find all method calls on this class, e.g., master.canMove(...)
-                methods = set(re.findall(r'\w+\.' + class_name + r'\(\w*\)\.(\w+)\(', all_tests_str))
-                # A more general regex for obj.method() where obj might be an instance of our class
-                methods.update(set(re.findall(r'\w+\.(\w+)\(', all_tests_str)))
-
-
-                method_defs = "    def __init__(self, *args, **kwargs): pass\n"
-                for method in methods:
-                    if method not in solution_words:
-                         method_defs += f"    def {method}(self, *args, **kwargs): return None\n"
-
-                placeholders.append(f"class {class_name}:\n{method_defs}")
-
-        # Handle function placeholders
-        for func_name in function_calls:
-            if func_name not in solution_words and func_name not in common_keywords:
-                placeholders.append(f"def {func_name}(*args, **kwargs): return None\n")
-
-        # Remove duplicates
-        unique_placeholders = list(dict.fromkeys(placeholders))
-        injected_code = "\n".join(unique_placeholders) + "\n\n" + solution_str
-        if unique_placeholders:
-            print(f"--- Injected Code for QID ---")
-            print("\n".join(unique_placeholders))
-            print("----------------------------")
-        return injected_code
 
     # Prepare lists for eval_codes - now we need to handle multiple programs per item
     all_parsed_codes = []
@@ -283,15 +302,31 @@ def main(
         
         item['gen_result'].pop('outputs', None)  # Clean up original outputs to avoid confusion
 
-    print(f" Saving {len(items_to_process)} processed results to: {output_file}")
+    print(f"💾 Saving {len(items_to_process)} processed results to: {output_file}")
     with open(output_file, 'w') as f:
         for item in items_to_process:
+            # 🔧 FIX: Store all evaluated programs for next round access
+            # Extract all programs from eval_results to ensure persistence
+            all_programs_in_eval = []
+            eval_results = item.get('gen_result', {}).get('eval_results', [])
+            for eval_result in eval_results:
+                program_code = eval_result.get('parse_code', '')
+                if program_code and program_code.strip():
+                    all_programs_in_eval.append(program_code)
+            
+            # Store programs in both 'program' field and 'all_programs' for next round
+            if all_programs_in_eval:
+                item['program'] = all_programs_in_eval  # Update main program field
+                item['all_programs'] = all_programs_in_eval  # Additional backup field
+                problem_id = str(item.get('id', 'unknown'))[:8]
+                print(f"💾 Saved {len(all_programs_in_eval)} programs for problem {problem_id}...")
+            
             # Clean up temporary keys before saving
             item.pop('programs_to_eval', None)
             item.pop('all_tests', None)
             f.write(json.dumps(item, ensure_ascii=False) + '\n')
     
-    print_statistics(items_to_process, output_file=stats_output_file)
+    print_statistics(items_to_process, output_file=stats_file)
     
     # --- Visualization History Logging ---
     vis_dir = output_dir / "visualizations"

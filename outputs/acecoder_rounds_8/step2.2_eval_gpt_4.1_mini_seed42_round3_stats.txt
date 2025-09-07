@@ -1,0 +1,105 @@
+
+================================================================================
+EVALUATION STATISTICS
+================================================================================
+📊 Basic Info:
+   Total problems: 5
+   Total solutions: 84
+   Solutions per problem: 16
+
+🎯 Pass Rate Statistics:
+   Mean pass rate: 0.2037 (20.37%)
+   Median pass rate: 0.0172 (1.72%)
+   Std deviation: 0.2709
+   Min pass rate: 0.0000 (0.00%)
+   Max pass rate: 0.7069 (70.69%)
+
+📈 Pass@k Statistics:
+   Pass@1: 0.0000 (0.00%)
+   Pass@2: 0.0000 (0.00%)
+   Pass@4: 0.0000 (0.00%)
+   Pass@8: 0.0000 (0.00%)
+   Pass@16: 0.0000 (0.00%)
+   Total solutions with pass rate 1.0: 0
+   Percentiles:
+     25th: 0.0000 (0.00%)
+     50th: 0.0172 (1.72%)
+     75th: 0.3077 (30.77%)
+     90th: 0.7069 (70.69%)
+     95th: 0.7069 (70.69%)
+     99th: 0.7069 (70.69%)
+
+✅ Solution Quality Distribution:
+   Perfect solutions (100% pass): 0 (0.00%)
+   Partial solutions (0% < pass < 100%): 49 (58.33%)
+   Failed solutions (0% pass): 35 (41.67%)
+
+📈 Pass Rate Distribution (bins):
+   [0.0, 0.1): 48 solutions (57.14%)
+   [0.1, 0.2): 2 solutions (2.38%)
+   [0.2, 0.3): 11 solutions (13.10%)
+   [0.3, 0.4): 3 solutions (3.57%)
+   [0.4, 0.5): 0 solutions (0.00%)
+   [0.5, 0.6): 5 solutions (5.95%)
+   [0.6, 0.7): 1 solutions (1.19%)
+   [0.7, 0.8): 14 solutions (16.67%)
+   [0.8, 0.9): 0 solutions (0.00%)
+   [0.9, 1.0): 0 solutions (0.00%)
+
+🧩 Problem-level Analysis:
+   Average pass rate per problem: 0.2052 ± 0.2385
+   Best solution per problem: 0.3102 ± 0.2768
+   Worst solution per problem: 0.0000 ± 0.0000
+
+🎚️  Problem Difficulty (based on best solution):
+   Easy (≥80% pass): 0 (0.00%)
+   Medium (40-80% pass): 2 (40.00%)
+   Hard (<40% pass): 3 (60.00%)
+
+🧪 Test Case Analysis:
+   Total test cases: 3981
+   Passed test cases: 843 (21.18%)
+   Failed test cases: 3138 (78.82%)
+   Overall test pass rate: 0.2118 (21.18%)
+   Avg test cases per solution: 47.39 ± 16.84
+   Min/Max test cases: 13/58
+
+   📋 Failure Reasons:
+     fail: 2980 (74.86%)
+     pass: 843 (21.18%)
+     syntax_error: 135 (3.39%)
+     unexecuted: 13 (0.33%)
+     timeout: 10 (0.25%)
+
+   ❌ Error Analysis:
+     Test cases with errors: 590 (14.82%)
+     Top error messages:
+       204x (34.6%): 'NoneType' object has no attribute 'fullmatch'
+       143x (24.2%): 'AVLTree' object has no attribute 'insert'
+       135x (22.9%): '(' was never closed (<string>, line 1)
+       43x (7.3%): name 'function' is not defined
+       25x (4.2%): 'AVLTree' object has no attribute 'kthSmallest'
+
+   ⏱️  Timeout Analysis:
+     Timeout test cases: 10 (0.25%)
+
+   ⏰ Time Limit Analysis:
+     Average time limit: 1.00s ± 0.00s
+     Min/Max time limit: 1.00s / 1.00s
+     Time limit distribution:
+       1s: 3981 tests (100.00%)
+
+🏆 Top 5 Easiest Problems (by best solution pass rate):
+   1. Problem 0: 0.7069 (avg: 0.6573)
+   2. Problem 3: 0.5192 (avg: 0.1760)
+   3. Problem 1: 0.3077 (avg: 0.1779)
+   4. Problem 2: 0.0172 (avg: 0.0149)
+   5. Problem 4: 0.0000 (avg: 0.0000)
+
+💀 Top 5 Hardest Problems (by best solution pass rate):
+   1. Problem 4: 0.0000 (avg: 0.0000)
+   2. Problem 2: 0.0172 (avg: 0.0149)
+   3. Problem 1: 0.3077 (avg: 0.1779)
+   4. Problem 3: 0.5192 (avg: 0.1760)
+   5. Problem 0: 0.7069 (avg: 0.6573)
+================================================================================

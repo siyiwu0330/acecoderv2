@@ -157,3 +157,53 @@ Temporary Items
 
 # Output directories
 # outputs/  # Uncommented to allow uploading outputs to Hugging Face
+
+# AceCoderV2 specific
+*.jsonl
+*.parquet
+*.pkl
+*.pickle
+logs/
+cache/
+models/
+eval/
+data/
+temp/
+tmp/
+
+# Docker
+.dockerignore
+docker-usage-example.md
+
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# API keys and secrets
+*api_key*
+*secret*
+*password*
+*token*
+
+# Large files
+*.zip
+*.tar.gz
+*.tar.bz2
+*.7z
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini

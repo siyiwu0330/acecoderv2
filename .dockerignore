@@ -1,7 +1,3 @@
-# Git
-.git
-.gitignore
-
 # Python
 __pycache__/
 *.py[cod]
@@ -20,23 +16,119 @@ parts/
 sdist/
 var/
 wheels/
+share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
 MANIFEST
 
-# Virtual environments
-venv/
-env/
-ENV/
-.venv/
+# PyInstaller
+*.manifest
+*.spec
 
-# IDE
-.vscode/
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# pdm
+.pdm.toml
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# PyCharm
 .idea/
-*.swp
-*.swo
-*~
+
+# VSCode
+.vscode/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Project specific
+outputs/
+logs/
+cache/
+models/
+data/raw/
+data/processed/
+test_output/
+output_dir/
+.git/
+.gitignore
 
 # OS
 .DS_Store
@@ -47,46 +139,43 @@ ENV/
 ehthumbs.db
 Thumbs.db
 
-# Logs
-*.log
-logs/
+# Docker
+Dockerfile.old
+docker-compose.override.yml
+docker-compose.local.yml
 
 # Temporary files
 *.tmp
 *.temp
-.cache/
+*.log
+*.bak
+*.swp
+*.swo
+*~
 
-# Docker
-Dockerfile
-docker-compose*.yml
-.dockerignore
+# Large files that shouldn't be in Docker image
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.wav
+*.mp3
+*.tar.gz
+*.zip
+*.rar
 
-# Documentation
-*.md
-docs/
+# IDE specific
+.idea/
+*.iml
+*.ipr
+*.iws
 
-# Output directories (will be mounted as volumes)
-outputs/
-results/
+# Conda
+.conda/
 
-# Jupyter
-.ipynb_checkpoints/
-
-# pytest
-.pytest_cache/
-
-# Coverage
-.coverage
-htmlcov/
-
-# Environment variables
-.env
-.env.local
-.env.*.local
-
-# Node.js (if any)
+# Node modules (if any)
 node_modules/
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
+# Documentation build
+docs/_build/
