@@ -6,7 +6,7 @@
 
 A comprehensive adversarial code generation system that creates challenging programming problems and evaluates AI models' coding capabilities through multi-round adversarial testing.
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Option 1: VS Code Dev Container (Recommended)
 
@@ -59,7 +59,7 @@ export OPENAI_API_KEY="your-api-key-here"
 python main.py --output_dir outputs/test --rounds 1 --max_samples 10
 ```
 
-## 🎯 Features
+## Features
 
 ### Core Pipeline
 - **Step 1: Prompting** - Transform simple problems into complex LeetCode-style problems
@@ -82,7 +82,7 @@ python main.py --output_dir outputs/test --rounds 1 --max_samples 10
 - **Retry Logic** - Robust error handling with exponential backoff
 - **Caching** - Intelligent caching of API responses
 
-## 📊 Usage Examples
+## Usage Examples
 
 ### Basic Pipeline
 ```bash
@@ -114,7 +114,7 @@ python integrated_gradio_app.py
 python app.py
 ```
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 acecoderv2/
@@ -137,7 +137,7 @@ acecoderv2/
 └── ...                    # Other utilities
 ```
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 ```bash
@@ -160,7 +160,7 @@ Key options:
 - `--use_vllm`: Use VLLM for generation
 - `--verbose`: Enable verbose logging
 
-## 📈 Performance
+## Performance
 
 ### Skip Step 4 Benefits
 - **Solves hanging issues** with large problem sets (>50 problems)
@@ -174,7 +174,7 @@ Key options:
 - **Memory friendly** - supports chunked reading
 - **Tool compatibility** - works with pandas, Dask, etc.
 
-## 🐳 Docker Support
+## Docker Support
 
 ### Available Images
 - `siyiwu0330/acecoderv2:latest` - Latest version
@@ -194,45 +194,20 @@ services:
       - ./outputs:/home/acecoder/app/outputs
 ```
 
-## 📚 Documentation
+## Documentation
 
 - [Skip Step 4 Usage](SKIP_STEP4_USAGE.md) - Guide for skipping cross-round evaluation
 - [Parquet Conversion](PARQUET_CONVERSION_USAGE.md) - Data format conversion guide
 - [Dev Container Setup](.devcontainer/README.md) - VS Code development environment
 - [Changelog](CHANGELOG.md) - Version history and updates
 
-## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - OpenAI for providing the GPT models
 - Hugging Face for dataset hosting and tools
 - The open-source community for various dependencies
 
-## 📞 Support
-
-- **GitHub Issues**: [Report bugs and feature requests](https://github.com/siyiwu0330/acecoderv2/issues)
-- **Docker Hub**: [Container images](https://hub.docker.com/r/siyiwu0330/acecoderv2)
-- **Documentation**: Check individual script help with `--help`
-
-## 🎉 Version 2.1.0 Highlights
-
-- ✅ Skip Step 4 functionality for large datasets
-- ✅ Parquet conversion tools
-- ✅ Unified OpenAI client management
-- ✅ VS Code dev container support
-- ✅ Enhanced Docker integration
-- ✅ Comprehensive documentation
 
 ---
 
