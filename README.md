@@ -202,9 +202,3 @@ services:
 - [Changelog](CHANGELOG.md) - Version history and updates
 
 
-## Acknowledgments
-
-- OpenAI for providing the GPT models
-- Hugging Face for dataset hosting and tools
-- The open-source community for various dependencies
-
